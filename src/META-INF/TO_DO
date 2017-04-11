@@ -1,0 +1,20 @@
+
+How to represent tri-service units in database
+com.bc.jpa.util.EntityMapBuilder should use actual builder template
+Add description to form input
+
+No longer should an appointment have a unit
+A person should have an appointment and a unit
+A unit should return a list of persons which in turn could be used to return this appointment list
+
+Appointment types should not have Air i.e Principal Staff Officer not Principal Air St...
+Add Presidential Air Fleet to Unit
+2 x appointment scope   Service, Defence
+Each appointment type should have an appointment scope
+Service Chief - Tri-Service
+Service Chief - Single Service
+Branch Chief - Tri-Service
+Branch Chief - Single Service
+
+
+

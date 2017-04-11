@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="personneldatamanagerPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.pdm.pu.entities.Unit</class>
+    <class>com.pdm.pu.entities.Speciality</class>
+    <class>com.pdm.pu.entities.Grade</class>
+    <class>com.pdm.pu.entities.Appointment</class>
+    <class>com.pdm.pu.entities.Commissiontype</class>
+    <class>com.pdm.pu.entities.Unittype</class>
+    <class>com.pdm.pu.entities.Stateoforigin</class>
+    <class>com.pdm.pu.entities.Gender</class>
+    <class>com.pdm.pu.entities.Airmansdata</class>
+    <class>com.pdm.pu.entities.Airmansposting</class>
+    <class>com.pdm.pu.entities.Officersdata</class>
+    <class>com.pdm.pu.entities.Officersposting</class>
+    <class>com.pdm.pu.entities.Personneldata</class>
+    <class>com.pdm.pu.entities.Trade</class>
+    <class>com.pdm.pu.entities.Rank</class>
+    <class>com.pdm.pu.entities.Appointmenttype</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/loosebox_pdm?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="Jesus4eva-"/>
+      <property name="eclipselink.connection-pool.default.initial" value="1"/>
+      <property name="eclipselink.connection-pool.default.min" value="64"/>
+      <property name="eclipselink.connection-pool.default.max" value="64"/>
+      <property name="eclipselink.jdbc.cache-statements" value="true"/>
+      <property name="eclipselink.jdbc.batch-writing" value="JDBC"/>
+      <property name="eclipselink.jdbc.batch-writing.size" value="1000"/>
+      <property name="eclipselink.logging.level.sql" value="FINE"/>
+      <!--property name="eclipselink.logging.parameters" value="true"/-->
+    </properties>
+  </persistence-unit>
+</persistence>
