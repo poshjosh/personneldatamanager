@@ -18,10 +18,13 @@ package com.pdm.ui.actions;
 
 import com.bc.appbase.App;
 import com.bc.appbase.ui.SearchResultsPanel;
+import com.bc.appbase.ui.actions.ParamNames;
 import com.bc.appbase.ui.builder.UIBuilder;
 import com.bc.appcore.actions.Action;
 import com.bc.appcore.actions.TaskExecutionException;
 import com.bc.jpa.dao.Dao;
+import com.bc.util.JsonFormat;
+import com.bc.util.MapBuilder;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -29,24 +32,26 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import com.pdm.PdmApp;
-import com.pdm.util.MapFromEntityBuilder;
+import com.pdm.jpa.MethodFilterImpl;
 import java.awt.Container;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Apr 1, 2017 3:51:43 PM
  */
 public class DisplayRecords implements Action<App,Boolean> {
+
+    private static final Logger logger = Logger.getLogger(DisplayRecords.class.getName());
     
     @Override
     public Boolean execute(final App app, final Map<String, Object> params) throws TaskExecutionException {
         
-        final Class entityType = (Class)params.get("entityType");
+        final Class entityType = (Class)params.get(ParamNames.RESULT_TYPE);
         final String idColumnName = app.getJpaContext().getMetaData().getIdColumnName(entityType);
         final List idsList = (List)params.get(idColumnName+"List");
         
         final SearchResultsPanel resultsPanel = (SearchResultsPanel)params.get(SearchResultsPanel.class.getName());
         
-        try(final Dao dao = app.getDao()) {
+        try(final Dao dao = app.getDao(entityType)) {
             
             for(Object id : idsList) {
                 
@@ -59,9 +64,16 @@ public class DisplayRecords implements Action<App,Boolean> {
         
     public Container execute(final App app, Object entity, SearchResultsPanel resultsPanel) throws TaskExecutionException {
         
-        final Map map = new MapFromEntityBuilder((PdmApp)app)
+        final Map map = app.get(MapBuilder.class)
+                .methodFilter(new MethodFilterImpl((PdmApp)app))
                 .source(entity)
                 .build();
+        
+        if(logger.isLoggable(Level.FINER)) {
+            final StringBuilder appendTo = new StringBuilder();
+            new JsonFormat(true, true, "  ").appendJSONString(map, appendTo);
+            logger.log(Level.FINER, "Entity: {0}, Map:\n{1}", new Object[]{entity, appendTo});
+        }
         
         final UIBuilder<Map, Container> uib = app.get(UIBuilder.class);
 
@@ -70,46 +82,10 @@ public class DisplayRecords implements Action<App,Boolean> {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().add(new JScrollPane(ui));
-        app.getUIContext().positionHalfScreenRight(frame);
+//        app.getUIContext().positionHalfScreenRight(frame);
         frame.pack();
         frame.setVisible(true);
         
         return ui;
-    }
-    
-    public Object execute_old(final App app, Object entity, SearchResultsPanel resultsPanel) throws TaskExecutionException {
-        
-//        final String html = app.getHtmlBuilder(entity.getClass()).source(entity).build();
-
-//        final EditorPaneFrame frame = ((DtbApp)app).getUIContext().createEditorPaneFrame(resultsPanel);
-
-        final JFrame frame = new JFrame();
-
-        java.awt.EventQueue.invokeLater(new Runnable(){
-            @Override
-            public void run() {
-
-                try{
-                    
-                    app.getUIContext().positionHalfScreenRight(frame);
-                    
-//                    frame.getEditorPane().setContentType("text/html");
-//                    frame.getEditorPane().setText(html);
-
-                    frame.pack();
-                    frame.setVisible(true);
-                    
-                }catch(RuntimeException e) {
-                    
-                    final String msg = "Error displaying task details";
-                    
-                    Logger.getLogger(this.getClass().getName()).log(Level.WARNING, msg, e);
-                    
-                    app.getUIContext().showErrorMessage(e, msg);
-                }
-            }
-        });
-        
-        return null;
     }
 }

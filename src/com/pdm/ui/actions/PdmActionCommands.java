@@ -20,6 +20,8 @@ package com.pdm.ui.actions;
  * @author Chinomso Bassey Ikwuagwu on Mar 25, 2017 9:47:01 PM
  */
 public interface PdmActionCommands extends com.bc.appbase.ui.actions.ActionCommands {
+    
+    String ABOUT = About.class.getName();
 
     String DISPLAY_ADD_OFFICERDATA_UI = DisplayAddOfficerdataUI.class.getName();
     String ADD_OFFICERSDATA = AddOfficersdata.class.getName();

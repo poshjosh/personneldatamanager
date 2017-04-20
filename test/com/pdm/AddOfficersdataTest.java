@@ -37,9 +37,10 @@ import com.bc.appcore.actions.TaskExecutionException;
 import com.bc.appcore.parameter.ParameterException;
 import com.bc.appcore.predicates.Equals;
 import com.bc.util.JsonBuilder;
+import com.bc.util.MapBuilder;
 import com.pdm.pu.entities.Personneldata_;
 import com.pdm.ui.actions.PdmActionCommands;
-import com.pdm.util.MapFromEntityBuilder;
+import com.pdm.jpa.MethodFilterImpl;
 import java.awt.Container;
 import java.io.IOException;
 import java.util.function.Predicate;
@@ -103,26 +104,26 @@ System.out.println("Setting: "+component.getName()+" to: "+value+" in UI compone
         final Calendar cal = Calendar.getInstance();
         cal.clear();
         final Map<String, Object> od = new HashMap();
-        od.put("commissiontype", app.getDao().find(Commissiontype.class, (short)2));
+        od.put("commissiontype", app.getDao(Commissiontype.class).find(Commissiontype.class, (short)2));
         od.put("course", "37");
         cal.set(1990, 8, 22);
         od.put("dateofcommission", cal.getTime());
-        od.put("appointment", app.getDao().find(Appointment.class, 7));
+        od.put("appointment", app.getDao(Appointment.class).find(Appointment.class, 7));
         cal.set(1966, 9, 3);
         od.put("dateofbirth", cal.getTime());
         od.put("firstname", "Bello");
-        od.put("gender", app.getDao().find(Gender.class, (short)2));
+        od.put("gender", app.getDao(Gender.class).find(Gender.class, (short)2));
         od.put("localgovernmentarea", "LGANKA");
         od.put("middlename", "Ade");
 //        pd.setOfficersdata(od);
-        od.put("rank", app.getDao().find(Rank.class, (short)4));
+        od.put("rank", app.getDao(Rank.class).find(Rank.class, (short)4));
         cal.set(2015, 8, 19);
         od.put("seniority", cal.getTime());
         od.put("servicenumber", "2197");
-        od.put("stateoforigin", app.getDao().find(Stateoforigin.class, (short)1));
+        od.put("stateoforigin", app.getDao(Stateoforigin.class).find(Stateoforigin.class, (short)1));
         od.put("surname", "Nwosu");
 //        od.setPersonneldata(pd);
-        od.put("speciality", app.getDao().find(Speciality.class, (short)1));
+        od.put("speciality", app.getDao(Speciality.class).find(Speciality.class, (short)1));
         return od;
     }
     
@@ -130,26 +131,26 @@ System.out.println("Setting: "+component.getName()+" to: "+value+" in UI compone
         final Calendar cal = Calendar.getInstance();
         cal.clear();
         final Map<String, Object> od = new HashMap();
-        od.put("commissiontype", app.getDao().find(Commissiontype.class, (short)1));
+        od.put("commissiontype", app.getDao(Commissiontype.class).find(Commissiontype.class, (short)1));
         od.put("course", "49");
         cal.set(2002, 8, 19);
         od.put("dateofcommission", cal.getTime());
-        od.put("appointment", app.getDao().find(Appointment.class, 2));
+        od.put("appointment", app.getDao(Appointment.class).find(Appointment.class, 2));
         cal.set(1978, 4, 9);
         od.put("dateofbirth", cal.getTime());
         od.put("firstname", "Chinomso");
-        od.put("gender", app.getDao().find(Gender.class, (short)1));
+        od.put("gender", app.getDao(Gender.class).find(Gender.class, (short)1));
         od.put("localgovernmentarea", "BENDE");
         od.put("middlename", "Bassey");
 //        pd.setOfficersdata(od);
-        od.put("rank", app.getDao().find(Rank.class, (short)6));
+        od.put("rank", app.getDao(Rank.class).find(Rank.class, (short)6));
         cal.set(2015, 8, 19);
         od.put("seniority", cal.getTime());
         od.put("servicenumber", "2597");
-        od.put("stateoforigin", app.getDao().find(Stateoforigin.class, (short)1));
+        od.put("stateoforigin", app.getDao(Stateoforigin.class).find(Stateoforigin.class, (short)1));
         od.put("surname", "Ikwuagwu");
 //        od.setPersonneldata(pd);
-        od.put("speciality", app.getDao().find(Speciality.class, (short)1));
+        od.put("speciality", app.getDao(Speciality.class).find(Speciality.class, (short)1));
         return od;
     }
     
@@ -157,31 +158,32 @@ System.out.println("Setting: "+component.getName()+" to: "+value+" in UI compone
         final Calendar cal = Calendar.getInstance();
         cal.clear();
         final Officersdata od = new Officersdata();
-        od.setCommissiontype(app.getDao().find(Commissiontype.class, (short)1));
+        od.setCommissiontype(app.getDao(Commissiontype.class).find(Commissiontype.class, (short)1));
         od.setCourse("49");
         cal.set(2002, 8, 19);
         od.setDateofcommission(cal.getTime());
         final Personneldata pd = new Personneldata();
-        pd.setAppointment(app.getDao().find(Appointment.class, 2));
+        pd.setAppointment(app.getDao(Appointment.class).find(Appointment.class, 2));
         cal.set(1978, 4, 9);
         pd.setDateofbirth(cal.getTime());
         pd.setFirstname("Chinomso");
-        pd.setGender(app.getDao().find(Gender.class, (short)1));
+        pd.setGender(app.getDao(Gender.class).find(Gender.class, (short)1));
         pd.setLocalgovernmentarea("BENDE");
         pd.setMiddlename("Bassey");
         pd.setOfficersdata(od);
-        pd.setRank(app.getDao().find(Rank.class, (short)6));
+        pd.setRank(app.getDao(Rank.class).find(Rank.class, (short)6));
         cal.set(2015, 8, 19);
         pd.setSeniority(cal.getTime());
         pd.setServicenumber("2597");
-        pd.setStateoforigin(app.getDao().find(Stateoforigin.class, (short)1));
+        pd.setStateoforigin(app.getDao(Stateoforigin.class).find(Stateoforigin.class, (short)1));
         pd.setSurname("Ikwuagwu");
         od.setPersonneldata(pd);
-        od.setSpeciality(app.getDao().find(Speciality.class, (short)1));
+        od.setSpeciality(app.getDao(Speciality.class).find(Speciality.class, (short)1));
         
         final Predicate<String> columnNameTest = new Equals(Personneldata_.airmansdata.getName()).negate();
         
-        final Map map = new MapFromEntityBuilder((PdmApp)app, columnNameTest)
+        final Map map = app.get(MapBuilder.class)
+                .methodFilter(new MethodFilterImpl((PdmApp)app, columnNameTest))
                 .source(od)
                 .build();
         return map;

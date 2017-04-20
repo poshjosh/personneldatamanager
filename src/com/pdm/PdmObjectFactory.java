@@ -16,10 +16,13 @@
 
 package com.pdm;
 
+import com.bc.appbase.ObjectFactory;
 import com.bc.appbase.ObjectFactoryImpl;
 import com.pdm.jpa.PdmSelectionContext;
 import com.bc.appcore.exceptions.ObjectFactoryException;
+import com.bc.appcore.jpa.EntityMapBuilder;
 import com.bc.appcore.jpa.SelectionContext;
+import com.bc.util.MapBuilder;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Mar 29, 2017 4:15:56 PM
@@ -35,6 +38,11 @@ public class PdmObjectFactory extends ObjectFactoryImpl {
         Object output;
         if(type.equals(SelectionContext.class)){
             output = new PdmSelectionContext(this.getApp());
+        }else if(type.equals(MapBuilder.class)){
+            output = new EntityMapBuilder(this.getApp())
+                    .nullsAllowed(true).maxCollectionSize(0).maxDepth(3);
+        }else if(type.equals(ObjectFactory.class)){
+            output = new PdmObjectFactory(this.getApp());
         }else{
             try{
                 output = super.get(type);

@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-package com.pdm.util;
+package com.pdm.jpa;
 
 import com.bc.appbase.App;
 import com.bc.appcore.predicates.Equals;
+import com.bc.util.MapBuilder;
 import com.pdm.PdmApp;
 import com.pdm.pu.entities.Officersdata;
 import com.pdm.pu.entities.Personneldata;
@@ -38,7 +39,8 @@ public class OfficersdataMap extends HashMap {
         
         final Predicate<String> columnNameTest = new Equals("airmansdata").negate();
         
-        new MapFromEntityBuilder((PdmApp)app, columnNameTest)
+        app.get(MapBuilder.class)
+                .methodFilter(new MethodFilterImpl((PdmApp)app, columnNameTest))
                 .source(officersdata)
                 .target(OfficersdataMap.this)
                 .build();

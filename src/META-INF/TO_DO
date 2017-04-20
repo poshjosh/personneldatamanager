@@ -1,6 +1,6 @@
+some times Regular Commission, others RC displayed in SearchResults
 
 How to represent tri-service units in database
-com.bc.jpa.util.EntityMapBuilder should use actual builder template
 Add description to form input
 
 No longer should an appointment have a unit

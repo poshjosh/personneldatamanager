@@ -17,20 +17,19 @@
 package com.pdm;
 
 import com.bc.appbase.AbstractApp;
+import com.bc.appbase.parameter.SelectedRecordsParametersBuilder;
 import com.bc.appbase.ui.SearchResultsPanel;
+import com.bc.appbase.ui.actions.ParamNames;
 import com.bc.appcore.html.HtmlBuilder;
 import com.bc.appcore.jpa.model.ResultModel;
 import com.bc.appcore.jpa.model.ResultModelImpl;
 import com.bc.appcore.parameter.ParametersBuilder;
-import com.bc.appcore.util.Settings;
 import com.bc.config.Config;
 import com.bc.config.ConfigService;
 import com.bc.jpa.JpaContext;
 import com.bc.jpa.sync.JpaSync;
 import com.bc.jpa.sync.SlaveUpdates;
 import com.pdm.parameter.SearchParametersBuilder;
-import com.pdm.parameter.SelectedRecordsParametersBuilder;
-import com.pdm.pu.entities.Officersdata;
 import com.pdm.ui.PdmMainFrame;
 import com.pdm.ui.PdmUIContext;
 import com.pdm.ui.PdmUIContextImpl;
@@ -40,26 +39,28 @@ import java.text.DateFormat;
 import java.util.concurrent.ExecutorService;
 import javax.swing.JPanel;
 import com.pdm.ui.actions.PdmActionCommands;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.Properties;
 import javax.persistence.EntityManager;
+import javax.swing.ImageIcon;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Mar 25, 2017 8:54:05 AM
  */
 public class PdmAppImpl extends AbstractApp implements PdmApp {
 
-    public PdmAppImpl(Path workingDir, ConfigService configService, Config config, Settings settings, 
+    public PdmAppImpl(Path workingDir, ConfigService configService, Config config, Properties settingsConfig, 
             JpaContext jpaContext, ExecutorService dataOutputService, SlaveUpdates slaveUpdates, JpaSync jpaSync) {
-        super(workingDir, configService, config, settings, jpaContext, dataOutputService, slaveUpdates, jpaSync);
+        super(workingDir, configService, config, settingsConfig, jpaContext, dataOutputService, slaveUpdates, jpaSync);
     }
 
     @Override
-    public EntityManager getEntityManager() {
-        final Class anyClassInDb = com.pdm.pu.entities.Personneldata.class;
-        return this.getJpaContext().getEntityManager(anyClassInDb);
+    public EntityManager getEntityManager(Class resultType) {
+        return this.getJpaContext().getEntityManager(resultType);
     }
     
     @Override
@@ -76,16 +77,21 @@ public class PdmAppImpl extends AbstractApp implements PdmApp {
     public void init() {
         this.init(new PdmObjectFactory(this));
         final PdmMainFrame mainFrame = new PdmMainFrame();
-        this.init(new PdmUIContextImpl(this, null, mainFrame));
+        
+        final URL iconURL = PdmApp.class.getResource("naflogo.jpg");
+        final ImageIcon imageIcon = new ImageIcon(iconURL, "NAF Logo");
+        
+        this.init(new PdmUIContextImpl(this, imageIcon, mainFrame));
+        
         mainFrame.init(this);
     }
 
     @Override
     public <T> ResultModel<T> getResultModel(Class<T> entityType, ResultModel<T> outputIfNone) {
-        final Class defaultType = Officersdata.class;
         if(entityType == null) {
-            entityType = defaultType;
+            entityType = (Class)this.getAttributes().get(ParamNames.RESULT_TYPE);
         }
+        Objects.requireNonNull(entityType);
         final String [] entityColumnNames = this.getColumnnames(entityType);
         final String serialColumnName = this.getConfig().getString(ConfigNames.COLUMNNAMES_SERIAL);
         final int serialColumnIndex = serialColumnName == null ? -1 : 0;

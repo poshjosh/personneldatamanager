@@ -101,25 +101,25 @@ insert into `loosebox_pdm`.appointmenttype VALUES(1, 'Defence Chief', 'Defence C
 insert into `loosebox_pdm`.appointmenttype VALUES(2, 'Service Chief', 'Svc Chief');
 insert into `loosebox_pdm`.appointmenttype VALUES(3, 'Tri-Service', 'Tri-Svc');
 insert into `loosebox_pdm`.appointmenttype VALUES(4, 'Branch Chief', 'Branch Chief');
-insert into `loosebox_pdm`.appointmenttype VALUES(5, 'Air Officer Commanding', 'AOC');
+insert into `loosebox_pdm`.appointmenttype VALUES(5, 'General/Flag/Air Officer Commanding', 'GOC/FOC/AOC');
 insert into `loosebox_pdm`.appointmenttype VALUES(6, 'Commandant', 'Comdt');
 insert into `loosebox_pdm`.appointmenttype VALUES(7, 'Deputy Commandant', 'Dy Comdt');
-insert into `loosebox_pdm`.appointmenttype VALUES(8, 'Principal Air Staff Officer', 'PASO');
+insert into `loosebox_pdm`.appointmenttype VALUES(8, 'Principal Staff Officer', 'PSO');
 insert into `loosebox_pdm`.appointmenttype VALUES(9, 'Director', 'Dir');
 insert into `loosebox_pdm`.appointmenttype VALUES(10, 'Commander', 'Comd');
 insert into `loosebox_pdm`.appointmenttype VALUES(11, 'Deputy Director', 'Dy Dir');
 insert into `loosebox_pdm`.appointmenttype VALUES(12, 'Command Specialist Officer', 'Comd Specialist Offr');
-insert into `loosebox_pdm`.appointmenttype VALUES(13, 'Air Assistant', 'AA');
-insert into `loosebox_pdm`.appointmenttype VALUES(14, 'Headqaurters Nigerian Air Force Staff Officer', 'HQ NAF Staff Offr');
+insert into `loosebox_pdm`.appointmenttype VALUES(13, 'Military/Air/Naval Assistant', 'MA/AA/NA');
+insert into `loosebox_pdm`.appointmenttype VALUES(14, 'Service Headqaurters Staff Officer', 'Service HQ Staff Offr');
 insert into `loosebox_pdm`.appointmenttype VALUES(15, 'Command Staff Officer', 'Comd Staff Offr');
 insert into `loosebox_pdm`.appointmenttype VALUES(16, 'Security Officer', 'Sy Offr');
 insert into `loosebox_pdm`.appointmenttype VALUES(17, 'Commanding Officer', 'CO');
 insert into `loosebox_pdm`.appointmenttype VALUES(18, 'Aide de Camp', 'ADC');
 insert into `loosebox_pdm`.appointmenttype VALUES(19, 'Officer Commanding', 'OC');
-insert into `loosebox_pdm`.appointmenttype VALUES(20, 'Flight Commander', 'Flt Comd');
+insert into `loosebox_pdm`.appointmenttype VALUES(20, 'Platoon/Flight Commander', 'Platoon/Flt Comd');
 insert into `loosebox_pdm`.appointmenttype VALUES(21, 'Admin Officer', 'AO');
-insert into `loosebox_pdm`.appointmenttype VALUES(22, 'Other - Officer', 'Other - Offr');
-insert into `loosebox_pdm`.appointmenttype VALUES(23, 'Air Warrant Officer', 'AWO');
+insert into `loosebox_pdm`.appointmenttype VALUES(22, 'OTHER - Officer', 'OTHER - Offr');
+insert into `loosebox_pdm`.appointmenttype VALUES(23, 'Army/Navy/Air Warrant Officer', 'AWO/NWO');
 insert into `loosebox_pdm`.appointmenttype VALUES(24, 'Regimental Seargent Major', 'RSM');
 insert into `loosebox_pdm`.appointmenttype VALUES(25, 'Chief Clerk', 'CC');
 insert into `loosebox_pdm`.appointmenttype VALUES(26, 'Supervisor', 'Supvr');
@@ -127,6 +127,7 @@ insert into `loosebox_pdm`.appointmenttype VALUES(27, 'Personal Assistant', 'PA'
 insert into `loosebox_pdm`.appointmenttype VALUES(28, 'Driver', 'Dvr');
 insert into `loosebox_pdm`.appointmenttype VALUES(29, 'Office Assistant', 'Office Asst');
 insert into `loosebox_pdm`.appointmenttype VALUES(30, 'Orderly', 'Orderly');
+insert into `loosebox_pdm`.appointmenttype VALUES(31, 'OTHER - Soldier/Rating/Airman', 'OTHER - Soldier/Rating/Airman');
 
 drop table if exists `loosebox_pdm`.appointment;
 create table `loosebox_pdm`.appointment

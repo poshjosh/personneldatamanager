@@ -18,12 +18,14 @@ package com.pdm.ui.actions;
 
 import com.bc.appbase.App;
 import com.bc.appbase.ui.SearchResultsFrame;
+import com.bc.appbase.ui.actions.ParamNames;
 import com.bc.appcore.actions.Action;
 import com.bc.appcore.actions.TaskExecutionException;
 import com.bc.appcore.jpa.SearchContext;
 import com.bc.appcore.parameter.ParameterException;
 import com.bc.jpa.search.SearchResults;
-import com.pdm.pu.entities.Officersdata;
+import com.pdm.pu.entities.Personneldata;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -37,10 +39,15 @@ public class SearchAndDisplayResults implements Action<App, Boolean> {
     @Override
     public Boolean execute(App app, Map<String, Object> params) 
             throws ParameterException, TaskExecutionException {
+
+        final Class resultType = Personneldata.class;
+        
+        params = new HashMap(params);
+        params.put(ParamNames.RESULT_TYPE, resultType);
         
         final SearchResults searchResults = (SearchResults)app.getAction(PdmActionCommands.SEARCH).execute(app, params);
         
-        final SearchContext searchContext = app.getSearchContext(Officersdata.class);
+        final SearchContext searchContext = app.getSearchContext(resultType);
         
         final int numberOfPagesToDisplay = 1;
         

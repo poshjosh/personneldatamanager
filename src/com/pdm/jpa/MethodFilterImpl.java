@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.pdm.util;
+package com.pdm.jpa;
 
 import com.bc.appcore.predicates.AcceptAll;
 import com.bc.appcore.predicates.MethodHasReturnType;

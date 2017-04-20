@@ -25,7 +25,7 @@ import com.bc.appbase.ui.SimpleFrame;
 import com.bc.appcore.actions.Action;
 import com.bc.appcore.util.Expirable;
 import com.pdm.PdmApp;
-import com.pdm.util.OfficersdataMap;
+import com.pdm.jpa.OfficersdataMap;
 import java.awt.Container;
 import java.util.concurrent.TimeUnit;
 

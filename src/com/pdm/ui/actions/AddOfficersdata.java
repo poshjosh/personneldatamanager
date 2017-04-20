@@ -29,9 +29,10 @@ import com.bc.appcore.parameter.ParameterException;
 import com.bc.appcore.parameter.ParameterNotFoundException;
 import com.bc.jpa.util.EntityFromMapBuilder;
 import com.bc.util.JsonFormat;
+import com.bc.util.MapBuilder;
 import com.pdm.PdmApp;
-import com.pdm.util.MapFromEntityBuilder;
-import com.pdm.util.OfficersdataMap;
+import com.pdm.jpa.MethodFilterImpl;
+import com.pdm.jpa.OfficersdataMap;
 import java.util.Optional;
 import java.util.logging.Level;
 import javax.swing.JComponent;
@@ -73,7 +74,7 @@ public class AddOfficersdata implements Action<App, Officersdata> {
         
         logger.log(level, "Updated source: {0}", this.toJsonString(update));
         
-        try(Dao dao = app.getDao()) {
+        try(Dao dao = app.getDao(Officersdata.class)) {
             
             window.setVisible(false);
             
@@ -92,6 +93,12 @@ public class AddOfficersdata implements Action<App, Officersdata> {
             
             dao.commit();
             
+            try{
+                app.getAction(PdmActionCommands.REFRESH_ALL_RESULTS).execute(app, params);
+            }catch(ParameterException | TaskExecutionException e) {
+                logger.log(Level.WARNING, "Error refreshing results", e);
+            }
+            
             app.getUIContext().showSuccessMessage("Success");
             
             return officersdata;
@@ -103,7 +110,8 @@ public class AddOfficersdata implements Action<App, Officersdata> {
     }
     
     public String toJsonString(App app, Object entity) {
-        final Map map = new MapFromEntityBuilder((PdmApp)app)
+        final Map map = app.get(MapBuilder.class)
+                .methodFilter(new MethodFilterImpl((PdmApp)app))
                 .source(entity)
                 .build();
         return this.toJsonString(map);

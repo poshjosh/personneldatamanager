@@ -17,14 +17,17 @@
 package com.pdm.ui.actions;
 
 import com.bc.appbase.App;
+import com.bc.appbase.ui.actions.ActionCommands;
+import com.bc.appbase.ui.actions.ParamNames;
 import com.bc.appcore.actions.Action;
 import com.bc.appcore.actions.TaskExecutionException;
 import com.bc.appcore.parameter.ParameterException;
 import com.bc.jpa.dao.Dao;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -36,34 +39,55 @@ public class DeleteRecords implements Action<App,Boolean> {
     public Boolean execute(App app, Map<String, Object> params) 
             throws ParameterException, TaskExecutionException {
         
-        final int selection = JOptionPane.showConfirmDialog(app.getUIContext().getMainFrame(), 
-                "Are you sure you want to delete the selected records(s)?", "Confirm Delete", 
-                JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        final Boolean output;
         
-        if(selection == JOptionPane.YES_OPTION) {
-            
-            final SelectedIdsList selectedIdsList = new SelectedIdsList(params);
-            final Iterator<Entry<Class, List>> iter = selectedIdsList.entrySet().iterator();
-            final Entry<Class, List> entry = !iter.hasNext() ? null : iter.next();
-            final Class entityType = entry.getKey();
-            final List idsList = entry.getValue();
-            
-            for(Object id : idsList) {
-                
-                try(Dao dao = app.getDao()) {
+        final Class entityType = (Class)params.get(ParamNames.RESULT_TYPE);
+        Objects.requireNonNull(entityType);
 
-                    final Object managedEntity = dao.find(entityType, id);
-                    
-                    dao.begin().remove(managedEntity).commit();
-                    app.getSlaveUpdates().addRemove(managedEntity);
+        final String idColumnName = app.getJpaContext().getMetaData().getIdColumnName(entityType);
+        final List idsList = (List)params.get(idColumnName+"List");
+        
+        if(idsList == null || idsList.isEmpty()) {
+            
+            app.getUIContext().showErrorMessage(null, "You did not select anything");
+            
+            output = Boolean.FALSE;
+            
+        }else{
+            
+            final int selection = JOptionPane.showConfirmDialog(app.getUIContext().getMainFrame(), 
+                    "Are you sure you want to delete the selected records(s)?", "Confirm Delete", 
+                    JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+
+            if(selection == JOptionPane.YES_OPTION) {
+
+                for(Object id : idsList) {
+
+                    try(Dao dao = app.getDao(entityType)) {
+
+                        final Object managedEntity = dao.find(entityType, id);
+
+                        dao.begin().remove(managedEntity).commit();
+                        app.getSlaveUpdates().addRemove(managedEntity);
+                    }
                 }
+
+                app.getUIContext().showSuccessMessage("Success");
+
+                try{
+                    app.getAction(ActionCommands.REFRESH_ALL_RESULTS).execute(app, params);
+                }catch(ParameterException | TaskExecutionException e) {
+                    Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "Unexpected exception", e);
+                }
+
+                output = Boolean.TRUE;
+
+            }else{
+
+                output = Boolean.FALSE;
             }
         }
         
-        app.getAction(PdmActionCommands.REFRESH_RESULTS).execute(app, params);
-        
-        app.getUIContext().showSuccessMessage("Success");
-        
-        return Boolean.TRUE;
+        return output;
     }
 }

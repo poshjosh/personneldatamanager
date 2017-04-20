@@ -22,10 +22,9 @@ import com.bc.appbase.ui.UILog;
 import com.bc.appcore.ResourceContext;
 import com.bc.appcore.ResourceContextImpl;
 import com.bc.appcore.actions.TaskExecutionException;
+import com.bc.appcore.parameter.ParameterException;
 import com.bc.appcore.util.BlockingQueueThreadPoolExecutor;
 import com.bc.appcore.util.LoggingConfigManagerImpl;
-import com.bc.appcore.util.Settings;
-import com.bc.appcore.util.SettingsImpl;
 import com.bc.config.CompositeConfig;
 import com.bc.config.Config;
 import com.bc.config.ConfigService;
@@ -80,7 +79,7 @@ public class TestApp {
             final String [] filesToCreate = new String[]{propsFile, loggingConfigFile};
             final ResourceContext fileManager = new ResourceContextImpl(dirsToCreate, filesToCreate);
             
-            new LoggingConfigManagerImpl(fileManager).init(defaultLoggingConfigFile, loggingConfigFile);
+            new LoggingConfigManagerImpl(fileManager).init(defaultLoggingConfigFile, loggingConfigFile, null);
             
             final ConfigService configService = new SimpleConfigService(
                     defaultPropsFile, propsFile);
@@ -88,8 +87,7 @@ public class TestApp {
             final Config config = new CompositeConfig(configService);
             
             new SetLookAndFeel().execute(null, 
-                    Collections.singletonMap(
-                            ParamNames.LOOK_AND_FEEL, 
+                    Collections.singletonMap(ParamNames.LOOK_AND_FEEL_NAME, 
                             config.getString(ConfigNames.LOOK_AND_FEEL)));
             
             final boolean WAS_INSTALLED = config.getBoolean(ConfigNames.INSTALLED);
@@ -120,10 +118,8 @@ public class TestApp {
                 settingsMetaData.load(reader);
             }
             
-            final Settings settings = new SettingsImpl(configService, config, settingsMetaData);
-            
             final PdmAppImpl app = new PdmAppImpl(
-                    Paths.get(workingDir), configService, config, settings, jpaContext,
+                    Paths.get(workingDir), configService, config, settingsMetaData, jpaContext,
                     updateOutputService, slaveUpdates, jpaSync
             );
             
@@ -131,7 +127,7 @@ public class TestApp {
             
             return app;
 
-        }catch(IOException | URISyntaxException | TaskExecutionException t) {
+        }catch(IOException | URISyntaxException | ParameterException | TaskExecutionException t) {
             
             throw new RuntimeException(t);
         }

@@ -13,8 +13,6 @@ import com.bc.appcore.jpa.SearchContext;
 import com.bc.appcore.parameter.ParameterException;
 import com.bc.appcore.util.BlockingQueueThreadPoolExecutor;
 import com.bc.appcore.util.LoggingConfigManagerImpl;
-import com.bc.appcore.util.Settings;
-import com.bc.appcore.util.SettingsImpl;
 import com.bc.config.CompositeConfig;
 import com.bc.config.Config;
 import com.bc.config.ConfigService;
@@ -27,7 +25,9 @@ import com.bc.jpa.sync.SlaveUpdates;
 import com.bc.util.JsonFormat;
 import com.pdm.pu.entities.Airmansdata;
 import com.pdm.pu.entities.Officersdata;
+import com.pdm.ui.PdmMainFrame;
 import com.pdm.ui.PdmUIContext;
+import com.pdm.ui.actions.PdmActionCommands;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.InputStreamReader;
@@ -39,7 +39,6 @@ import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Mar 13, 2017 9:52:58 PM
@@ -86,7 +85,7 @@ public class Personneldatamanager {
             final String [] filesToCreate = new String[]{propsFile, loggingConfigFile};
             final ResourceContext fileManager = new ResourceContextImpl(dirsToCreate, filesToCreate);
             
-            new LoggingConfigManagerImpl(fileManager).init(defaultLoggingConfigFile, loggingConfigFile);
+            new LoggingConfigManagerImpl(fileManager).init(defaultLoggingConfigFile, loggingConfigFile, null);
             
             uiLog.log("Loading configurations");
             
@@ -104,8 +103,7 @@ public class Personneldatamanager {
             uiLog.log("Setting Look and Feel");
             
             new SetLookAndFeel().execute(null, 
-                    Collections.singletonMap(
-                            ParamNames.LOOK_AND_FEEL, 
+                    Collections.singletonMap(ParamNames.LOOK_AND_FEEL_NAME, 
                             config.getString(ConfigNames.LOOK_AND_FEEL)));
             
             final boolean WAS_INSTALLED = config.getBoolean(ConfigNames.INSTALLED);
@@ -114,8 +112,8 @@ public class Personneldatamanager {
         
             final String persistenceFile = config.getString(ConfigNames.PERSISTENCE_FILE);
             logger.log(Level.INFO, "Peristence file: {0}", persistenceFile);
-            final URI peristenceURI = fileManager.getResource(persistenceFile).toURI();
-            final JpaContext jpaContext = new JpaContextImpl(peristenceURI, null);
+            final URI persistenceURI = fileManager.getResource(persistenceFile).toURI();
+            final JpaContext jpaContext = new JpaContextImpl(persistenceURI, null);
             jpaContext.getBuilderForSelect(Airmansdata.class).getResultsAndClose();
 
             final ExecutorService updateOutputService = 
@@ -128,15 +126,12 @@ public class Personneldatamanager {
             uiLog.log("Creating application context");
             
             final Properties settingsMetaData = new Properties();
-            
             try(Reader reader = new InputStreamReader(fileManager.getResourceAsStream("META-INF/properties/settings.properties"))) {
                 settingsMetaData.load(reader);
             }
             
-            final Settings settings = new SettingsImpl(configService, config, settingsMetaData);
-            
             final PdmAppImpl app = new PdmAppImpl(
-                    Paths.get(workingDir), configService, config, settings, jpaContext,
+                    Paths.get(workingDir), configService, config, settingsMetaData, jpaContext,
                     updateOutputService, slaveUpdates, jpaSync
             );
             
@@ -154,7 +149,12 @@ public class Personneldatamanager {
                         
                         final PdmUIContext uiContext = app.getUIContext();
                         
-                        final JFrame mainFrame = uiContext.getMainFrame();
+                        final PdmMainFrame mainFrame = uiContext.getMainFrame();
+                        final SearchResultsPanel resultsPanel = mainFrame.getSearchResultsPanel();
+                        
+                        resultsPanel.getAddButton().setActionCommand(PdmActionCommands.DISPLAY_ADD_OFFICERDATA_UI);
+                        uiContext.addActionListeners(resultsPanel, resultsPanel.getAddButton());
+                        
                         mainFrame.addWindowListener(new WindowAdapter() {
                             @Override
                             public void windowClosing(WindowEvent e) {
@@ -170,14 +170,13 @@ public class Personneldatamanager {
                         uiLog.log("Loading search results");
                         
                         final Class<Officersdata> entityType = Officersdata.class;
+                        app.getAttributes().put(ParamNames.RESULT_TYPE, entityType);
 
                         final SearchContext<Officersdata> searchContext = app.getSearchContext(entityType);
                         
-                        final SearchResults<Officersdata> searchResults = searchContext.getSearchResults(Officersdata.class);
+                        final SearchResults<Officersdata> searchResults = searchContext.getSearchResults();
                         
                         uiContext.positionFullScreen(mainFrame);
-                        
-                        final SearchResultsPanel resultsPanel = uiContext.getMainFrame().getSearchResultsPanel();
                         
                         uiContext.loadSearchResultsUI(resultsPanel, searchContext, 
                                 searchResults, "AppMainFrame", 0, 1, true);

@@ -17,12 +17,9 @@
 package com.pdm.ui;
 
 import com.bc.appbase.ui.MainFrame;
-import com.bc.appbase.ui.SearchResultsPanel;
 import java.awt.Font;
 import javax.swing.JPanel;
 import com.bc.appbase.App;
-import com.bc.appcore.jpa.SearchContext;
-import com.bc.jpa.search.SearchResults;
 import com.pdm.PdmApp;
 import com.pdm.ui.actions.PdmActionCommands;
 
@@ -39,7 +36,7 @@ public class PdmMainFrame extends MainFrame {
     }
 
     public PdmMainFrame(App app) {
-        this(app, new SearchPanel(), new java.awt.Font("Segoe UI", 0, 18), null);
+        this(app, new SearchPanel(), new java.awt.Font("Segoe UI", 0, 18), PdmActionCommands.ABOUT);
     }
 
     public PdmMainFrame(App app, JPanel topPanel, Font menuFont, String aboutMenuItemActionCommand) {
@@ -57,21 +54,9 @@ public class PdmMainFrame extends MainFrame {
     @Override
     public void init(App app) {
         
-        super.init(app);
+        super.init(app); 
         
-        final SearchResultsPanel resultsPanel = this.getSearchResultsPanel();
-        resultsPanel.getAddButton().setActionCommand(PdmActionCommands.DISPLAY_ADD_OFFICERDATA_UI);
-        app.getUIContext().addActionListeners(resultsPanel, resultsPanel.getAddButton());
-    }
-
-    @Override
-    public void reset(App app) {
-        
-        super.reset(app);
-        
-        final SearchContext searchContext = ((PdmApp)app).getSearchContext(null);
-        final SearchResults searchResults = searchContext.getSearchResults((Class)null);
-        this.getSearchResultsPanel().reset(app, searchContext, searchResults);
+//        this.getNewtaskMenuItem().setActionCommand(PdmActionCommands.DISPLAY_ADD_OFFICERDATA_UI);
     }
     
     @Override
