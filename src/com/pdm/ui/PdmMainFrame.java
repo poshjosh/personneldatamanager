@@ -20,7 +20,10 @@ import com.bc.appbase.ui.MainFrame;
 import java.awt.Font;
 import javax.swing.JPanel;
 import com.bc.appbase.App;
+import com.bc.appbase.ui.SearchResultsPanel;
 import com.pdm.PdmApp;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 import com.pdm.ui.actions.PdmActionCommands;
 
 /**
@@ -31,6 +34,8 @@ import com.pdm.ui.actions.PdmActionCommands;
  */
 public class PdmMainFrame extends MainFrame {
 
+    private JMenuItem importExcelDataMenuItem;
+    
     public PdmMainFrame() { 
         this(null);
     }
@@ -44,21 +49,37 @@ public class PdmMainFrame extends MainFrame {
     }
 
     @Override
-    public void initComponents() {
-        
-        super.initComponents(); 
-        
-        this.addHelpMenu();
-    }
-
-    @Override
     public void init(App app) {
         
         super.init(app); 
         
-//        this.getNewtaskMenuItem().setActionCommand(PdmActionCommands.DISPLAY_ADD_OFFICERDATA_UI);
+        this.importExcelDataMenuItem.setActionCommand(PdmActionCommands.IMPORT_SHEET_DATA);
+        app.getUIContext().addActionListeners(this, this.importExcelDataMenuItem);
+        
+        final SearchResultsPanel resultsPanel = this.getSearchResultsPanel();
+        resultsPanel.getAddButton().setActionCommand(PdmActionCommands.DISPLAY_ADD_CURRENT_ENTITY_TYPE_UI);
+        app.getUIContext().addActionListeners(resultsPanel, resultsPanel.getAddButton());
     }
     
+    @Override
+    public void initComponents() {
+        
+        super.initComponents(); 
+        
+        this.importExcelDataMenuItem = new JMenuItem();
+        
+        final JMenu fileMenu = this.getFileMenu();
+
+        final Font menuFont = this.getMenuFont();
+        importExcelDataMenuItem.setFont(menuFont);
+        importExcelDataMenuItem.setText("Import Excel Data");
+        fileMenu.add(importExcelDataMenuItem);
+        
+        
+        
+        this.addHelpMenu();
+    }
+
     @Override
     public void init(App app, JPanel topPanel) { 
         (((SearchPanel)topPanel)).init((PdmApp)app);
@@ -67,5 +88,9 @@ public class PdmMainFrame extends MainFrame {
     @Override
     public void reset(App app, JPanel topPanel) { 
         (((SearchPanel)topPanel)).reset((PdmApp)app);
+    }
+
+    public JMenuItem getImportExcelDataMenuItem() {
+        return importExcelDataMenuItem;
     }
 }

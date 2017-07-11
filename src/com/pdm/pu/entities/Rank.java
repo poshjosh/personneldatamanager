@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- * @author Chinomso Bassey Ikwuagwu on Mar 29, 2017 10:13:09 PM
+ * @author Chinomso Bassey Ikwuagwu on Jun 6, 2017 9:09:33 PM
  */
 @Entity
 @Table(name = "rank")

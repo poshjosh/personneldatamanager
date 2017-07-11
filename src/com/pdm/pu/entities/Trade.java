@@ -19,10 +19,11 @@ package com.pdm.pu.entities;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -32,7 +33,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- * @author Chinomso Bassey Ikwuagwu on Mar 29, 2017 10:13:09 PM
+ * @author Chinomso Bassey Ikwuagwu on Jun 6, 2017 9:09:32 PM
  */
 @Entity
 @Table(name = "trade")
@@ -46,6 +47,7 @@ public class Trade implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "tradeid")
     private Short tradeid;
@@ -55,7 +57,7 @@ public class Trade implements Serializable {
     @Basic(optional = false)
     @Column(name = "abbreviation")
     private String abbreviation;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "trade", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "trade", fetch = FetchType.LAZY)
     private List<Airmansdata> airmansdataList;
 
     public Trade() {

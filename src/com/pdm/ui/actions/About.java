@@ -17,19 +17,18 @@
 package com.pdm.ui.actions;
 
 import com.bc.appbase.App;
-import com.bc.appbase.ui.actions.DisplayResource;
-import static com.bc.appbase.ui.actions.DisplayResource.CONTENT_TYPE;
-import static com.bc.appbase.ui.actions.DisplayResource.RESOURCE;
+import com.bc.appbase.ui.actions.DisplayURL;
 import com.bc.appcore.actions.TaskExecutionException;
 import com.bc.appcore.parameter.ParameterException;
 import com.pdm.PdmApp;
 import java.util.HashMap;
 import java.util.Map;
+import static com.bc.appbase.ui.actions.ParamNames.CONTENT_TYPE;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Apr 17, 2017 8:49:13 PM
  */
-public class About extends DisplayResource {
+public class About extends DisplayURL {
 
     @Override
     public Boolean execute(App app, Map<String, Object> params) 
@@ -37,7 +36,7 @@ public class About extends DisplayResource {
         
         params = new HashMap();
         params.put(CONTENT_TYPE, "text/html");
-        params.put(RESOURCE, PdmApp.class.getResource("about.html"));
+        params.put(java.net.URL.class.getName(), PdmApp.class.getResource("about.html"));
         
         return super.execute(app, params);
     }

@@ -17,15 +17,14 @@
 package com.pdm.ui.actions;
 
 import com.bc.appbase.App;
-import com.bc.appbase.ui.SearchResultsFrame;
+import com.bc.appbase.ui.ResultsFrame;
+import com.bc.appbase.ui.UIContext;
 import com.bc.appbase.ui.actions.ParamNames;
 import com.bc.appcore.actions.Action;
 import com.bc.appcore.actions.TaskExecutionException;
 import com.bc.appcore.jpa.SearchContext;
 import com.bc.appcore.parameter.ParameterException;
 import com.bc.jpa.search.SearchResults;
-import com.pdm.pu.entities.Personneldata;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -40,28 +39,24 @@ public class SearchAndDisplayResults implements Action<App, Boolean> {
     public Boolean execute(App app, Map<String, Object> params) 
             throws ParameterException, TaskExecutionException {
 
-        final Class resultType = Personneldata.class;
-        
-        params = new HashMap(params);
-        params.put(ParamNames.RESULT_TYPE, resultType);
+        final Class resultType = (Class)params.get(ParamNames.ENTITY_TYPE);
         
         final SearchResults searchResults = (SearchResults)app.getAction(PdmActionCommands.SEARCH).execute(app, params);
         
         final SearchContext searchContext = app.getSearchContext(resultType);
         
-        final int numberOfPagesToDisplay = 1;
+        final ResultsFrame frame = new ResultsFrame();
         
-        final String paginationMessage = searchContext.getPaginationMessage(
-                searchResults, numberOfPagesToDisplay, true, false);
+        final UIContext uiContext = app.getUIContext();
         
-        final SearchResultsFrame frame = app.getUIContext().createSearchResultsFrame(
-                searchContext, searchResults, 
-                Long.toHexString(System.currentTimeMillis()) + '_' + UID.getAndIncrement(), 
-                0, numberOfPagesToDisplay, paginationMessage, true);
-        
-        app.getUIContext().positionHalfScreenRight(frame);
+        uiContext.positionHalfScreenRight(frame);
         
         frame.pack();
+        
+        final String ID = Long.toHexString(System.currentTimeMillis()) + '_' + UID.getAndIncrement();
+        
+        frame.getSearchResultsPanel().loadSearchResultsUI(
+                uiContext, searchContext, searchResults, ID, 0, 1, true);
         
         frame.setVisible(true);
         

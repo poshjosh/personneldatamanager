@@ -21,9 +21,13 @@ package com.pdm;
  */
 public interface FileNames {
 
+    // @related root folder
+    //
     String ROOT = "bcpdm";
     
     String CONFIGS = "configs";
     
+    // @related logs folder
+    //
     String LOGS = "logs";
 }

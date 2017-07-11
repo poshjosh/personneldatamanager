@@ -35,29 +35,29 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * @author Chinomso Bassey Ikwuagwu on Mar 29, 2017 10:13:09 PM
+ * @author Chinomso Bassey Ikwuagwu on Jun 6, 2017 9:09:32 PM
  */
 @Entity
-@Table(name = "airmansposting")
+@Table(name = "personnelposting")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Airmansposting.findAll", query = "SELECT a FROM Airmansposting a"),
-    @NamedQuery(name = "Airmansposting.findByAirmanspostingid", query = "SELECT a FROM Airmansposting a WHERE a.airmanspostingid = :airmanspostingid"),
-    @NamedQuery(name = "Airmansposting.findByDatetakenonstrength", query = "SELECT a FROM Airmansposting a WHERE a.datetakenonstrength = :datetakenonstrength")})
-public class Airmansposting implements Serializable {
+    @NamedQuery(name = "Personnelposting.findAll", query = "SELECT p FROM Personnelposting p"),
+    @NamedQuery(name = "Personnelposting.findByPersonnelpostingid", query = "SELECT p FROM Personnelposting p WHERE p.personnelpostingid = :personnelpostingid"),
+    @NamedQuery(name = "Personnelposting.findByDatetakenonstrength", query = "SELECT p FROM Personnelposting p WHERE p.datetakenonstrength = :datetakenonstrength")})
+public class Personnelposting implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "airmanspostingid")
-    private Integer airmanspostingid;
+    @Column(name = "personnelpostingid")
+    private Integer personnelpostingid;
     @Column(name = "datetakenonstrength")
     @Temporal(TemporalType.DATE)
     private Date datetakenonstrength;
-    @JoinColumn(name = "airmansdata", referencedColumnName = "airmansdataid")
+    @JoinColumn(name = "personneldata", referencedColumnName = "personneldataid")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Airmansdata airmansdata;
+    private Personneldata personneldata;
     @JoinColumn(name = "unit", referencedColumnName = "unitid")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Unit unit;
@@ -65,19 +65,19 @@ public class Airmansposting implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private Appointment appointment;
 
-    public Airmansposting() {
+    public Personnelposting() {
     }
 
-    public Airmansposting(Integer airmanspostingid) {
-        this.airmanspostingid = airmanspostingid;
+    public Personnelposting(Integer personnelpostingid) {
+        this.personnelpostingid = personnelpostingid;
     }
 
-    public Integer getAirmanspostingid() {
-        return airmanspostingid;
+    public Integer getPersonnelpostingid() {
+        return personnelpostingid;
     }
 
-    public void setAirmanspostingid(Integer airmanspostingid) {
-        this.airmanspostingid = airmanspostingid;
+    public void setPersonnelpostingid(Integer personnelpostingid) {
+        this.personnelpostingid = personnelpostingid;
     }
 
     public Date getDatetakenonstrength() {
@@ -88,12 +88,12 @@ public class Airmansposting implements Serializable {
         this.datetakenonstrength = datetakenonstrength;
     }
 
-    public Airmansdata getAirmansdata() {
-        return airmansdata;
+    public Personneldata getPersonneldata() {
+        return personneldata;
     }
 
-    public void setAirmansdata(Airmansdata airmansdata) {
-        this.airmansdata = airmansdata;
+    public void setPersonneldata(Personneldata personneldata) {
+        this.personneldata = personneldata;
     }
 
     public Unit getUnit() {
@@ -115,18 +115,18 @@ public class Airmansposting implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (airmanspostingid != null ? airmanspostingid.hashCode() : 0);
+        hash += (personnelpostingid != null ? personnelpostingid.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Airmansposting)) {
+        if (!(object instanceof Personnelposting)) {
             return false;
         }
-        Airmansposting other = (Airmansposting) object;
-        if ((this.airmanspostingid == null && other.airmanspostingid != null) || (this.airmanspostingid != null && !this.airmanspostingid.equals(other.airmanspostingid))) {
+        Personnelposting other = (Personnelposting) object;
+        if ((this.personnelpostingid == null && other.personnelpostingid != null) || (this.personnelpostingid != null && !this.personnelpostingid.equals(other.personnelpostingid))) {
             return false;
         }
         return true;
@@ -134,7 +134,7 @@ public class Airmansposting implements Serializable {
 
     @Override
     public String toString() {
-        return "com.pdm.pu.entities.Airmansposting[ airmanspostingid=" + airmanspostingid + " ]";
+        return "com.pdm.pu.entities.Personnelposting[ personnelpostingid=" + personnelpostingid + " ]";
     }
 
 }

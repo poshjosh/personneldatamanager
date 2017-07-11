@@ -40,6 +40,11 @@ import com.pdm.pu.entities.Unit_;
 import com.pdm.pu.entities.Unittype;
 import com.pdm.pu.entities.Unittype_;
 import com.pdm.PdmApp;
+import com.pdm.pu.entities.Localgovernmentarea;
+import com.pdm.pu.entities.Localgovernmentarea_;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Mar 29, 2017 8:41:23 PM
@@ -51,30 +56,67 @@ public class PdmSelectionContext extends AbstractSelectionContext {
     }
     
     @Override
+    public List sort(Class entityType, List entityList) {
+        final List output;
+        if(entityList == null || entityList.isEmpty()) {
+            output = Collections.EMPTY_LIST;
+        }else if(entityList.get(0) instanceof Unit) {
+            output = new ArrayList(entityList);
+            Collections.sort(output, new UnitSortOrderComparator());
+        }else{
+            output = entityList;
+        }
+        return output;
+    }
+    
+    @Override
+    public String getDisplayValue(Class entityType, Object entity, String columnName) {
+        final String displayValue;
+        final String displayFromSuper = super.getDisplayValue(entityType, entity, columnName);
+        if(entity instanceof Localgovernmentarea) {
+            final Localgovernmentarea lga = (Localgovernmentarea)entity;
+            final String state = lga.getStateoforigin().getStateoforigin();
+            final int end = state.toLowerCase().lastIndexOf(" state");
+            final String prefix;
+            if(end == -1) {
+                prefix = state;
+            }else{
+                prefix = state.substring(0, end);
+            }
+            displayValue = prefix + " - " + displayFromSuper; 
+        }else{
+            displayValue = displayFromSuper;
+        }
+        return displayValue;
+    }
+    
+    @Override
     public String getSelectionColumn(Class entityType, String outputIfNone) {
         final String columnName;
         if(entityType == Appointment.class) {
             columnName = Appointment_.abbreviation.getName();
         }else if(entityType == Appointmenttype.class) {
-            columnName = Appointmenttype_.appointmenttype.getName();
+            columnName = Appointmenttype_.abbreviation.getName();
         }else if(entityType == Commissiontype.class) {
             columnName = Commissiontype_.abbreviation.getName();
         }else if(entityType == Gender.class) {
-            columnName = Gender_.gender.getName();
+            columnName = Gender_.abbreviation.getName();
         }else if(entityType == Grade.class) {
             columnName = Grade_.grade.getName();
+        }else if(entityType == Localgovernmentarea.class) {
+            columnName = Localgovernmentarea_.localgovernmentarea.getName();
         }else if(entityType == Rank.class) {
             columnName = Rank_.abbreviation.getName();
         }else if(entityType == Speciality.class) {
-            columnName = Speciality_.speciality.getName();
+            columnName = Speciality_.abbreviation.getName();
         }else if(entityType == Stateoforigin.class) {
             columnName = Stateoforigin_.stateoforigin.getName();
         }else if(entityType == Trade.class) {
-            columnName = Trade_.trade.getName();
+            columnName = Trade_.abbreviation.getName();
         }else if(entityType == Unit.class) {
             columnName = Unit_.abbreviation.getName();
         }else if(entityType == Unittype.class) {
-            columnName = Unittype_.unittype.getName();
+            columnName = Unittype_.abbreviation.getName();
         } else{
             columnName = outputIfNone;
         }

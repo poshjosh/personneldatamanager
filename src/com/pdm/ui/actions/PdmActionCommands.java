@@ -22,13 +22,20 @@ package com.pdm.ui.actions;
 public interface PdmActionCommands extends com.bc.appbase.ui.actions.ActionCommands {
     
     String ABOUT = About.class.getName();
+    
+    String IMPORT_SHEET_DATA = ImportSheetData.class.getName();
 
-    String DISPLAY_ADD_OFFICERDATA_UI = DisplayAddOfficerdataUI.class.getName();
-    String ADD_OFFICERSDATA = AddOfficersdata.class.getName();
+    String DISPLAY_ADD_CURRENT_ENTITY_TYPE_UI = DisplayAddCurrentEntityTypeUI.class.getName();
+    String DISPLAY_EDIT_SELECTED_ENTITIES_UIS = DisplayEditSelectedEntitiesUIs.class.getName();
+    String DISPLAY_ADD_PERSONNELPOSTING_UI = DisplayAddPersonnelpostingUI.class.getName();
+    String DISPLAY_ADD_COURSEATTENDED_UI = DisplayAddCourseattendedUI.class.getName();
+    
+    String ADD_OFFICERSDATA = AddOfficersdataFromUI.class.getName();
+    String ADD_AIRMANSDATA = AddAirmansdataFromUI.class.getName();
+    String ADD_PERSONNELPOSTING = AddPersonnelpostingFromUI.class.getName();
+    String ADD_COURSEATTENDED = AddCourseattendedFromUI.class.getName();
+    
     
     String SEARCH = Search.class.getName();
     String SEARCH_AND_DISPLAY_RESULTS = SearchAndDisplayResults.class.getName();
-    
-    String DISPLAY_RECORDS = DisplayRecords.class.getName();
-    String DELETE_RECORDS = DeleteRecords.class.getName();
 }

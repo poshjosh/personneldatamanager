@@ -36,4 +36,6 @@ public interface ConfigNames {
     String DATE_PATTERN = "datePattern";
 
     String DATETIME_PATTERN = "dateTimePattern";
+    
+    String DEFAULT_LOCALGOVERNMENTAREA_PREFIX = "defaultLocalgovernmentareaPrefix";
 }

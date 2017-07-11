@@ -16,7 +16,7 @@
 
 package com.pdm;
 
-import com.bc.appbase.ui.EntryPanel;
+import com.bc.appbase.ui.FormEntryPanel;
 import com.pdm.pu.entities.Appointment;
 import com.pdm.pu.entities.Commissiontype;
 import com.pdm.pu.entities.Gender;
@@ -33,18 +33,18 @@ import java.util.Map;
 import org.junit.Test;
 import com.bc.appbase.App;
 import com.bc.appbase.ui.ComponentModel;
+import com.bc.appbase.ui.actions.ParamNames;
 import com.bc.appcore.actions.TaskExecutionException;
 import com.bc.appcore.parameter.ParameterException;
-import com.bc.appcore.predicates.Equals;
 import com.bc.util.JsonBuilder;
 import com.bc.util.MapBuilder;
-import com.pdm.pu.entities.Personneldata_;
-import com.pdm.ui.actions.PdmActionCommands;
-import com.pdm.jpa.MethodFilterImpl;
+import com.pdm.pu.entities.Localgovernmentarea;
+import com.pdm.pu.entities.Personnelposting;
+import com.pdm.pu.entities.Unit;
 import java.awt.Container;
 import java.io.IOException;
-import java.util.function.Predicate;
 import javax.swing.JPanel;
+import com.pdm.ui.actions.PdmActionCommands;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Mar 29, 2017 10:25:56 PM
@@ -54,11 +54,13 @@ public class AddOfficersdataTest {
     @Test
     public void testAll() throws ParameterException, TaskExecutionException {
         
-        final PdmAppImpl app = TestApp.getInstance();
+        final PdmApp app = TestApp.getInstance(true);
         
-        final Container ui = (Container)app.getAction(PdmActionCommands.DISPLAY_ADD_OFFICERDATA_UI).execute(app, Collections.EMPTY_MAP);
+        app.getAttributes().put(ParamNames.ENTITY_TYPE, Officersdata.class);
+        
+        final Container ui = (Container)app.getAction(PdmActionCommands.DISPLAY_ADD_CURRENT_ENTITY_TYPE_UI).execute(app, Collections.EMPTY_MAP);
    
-        final ComponentModel cm = app.get(ComponentModel.class);
+        final ComponentModel cm = app.getOrException(ComponentModel.class);
         
         final Map<String, Object> data = this.getData1(app);
         
@@ -84,9 +86,9 @@ System.out.println("= = = = = == = Building component named: "+ui.getName()+", o
             
 System.out.println("Found component named: "+c.getName()+", of type: "+c.getClass().getName());            
             
-            if(c instanceof EntryPanel) {
+            if(c instanceof FormEntryPanel) {
                 
-                EntryPanel entryPanel = (EntryPanel)c;
+                FormEntryPanel entryPanel = (FormEntryPanel)c;
                 Component component = entryPanel.getEntryComponent();
 
                 Object value = data.get(component.getName());
@@ -109,6 +111,7 @@ System.out.println("Setting: "+component.getName()+" to: "+value+" in UI compone
         cal.set(1990, 8, 22);
         od.put("dateofcommission", cal.getTime());
         od.put("appointment", app.getDao(Appointment.class).find(Appointment.class, 7));
+        od.put("unit", app.getDao(Unit.class).find(Unit.class, 23));
         cal.set(1966, 9, 3);
         od.put("dateofbirth", cal.getTime());
         od.put("firstname", "Bello");
@@ -128,9 +131,15 @@ System.out.println("Setting: "+component.getName()+" to: "+value+" in UI compone
     }
     
     private Map<String, Object> getData(App app) {
+        final Map<String, Object> od = new HashMap();
         final Calendar cal = Calendar.getInstance();
         cal.clear();
-        final Map<String, Object> od = new HashMap();
+        Personnelposting pp = new Personnelposting();
+        pp.setAppointment(app.getDao(Appointment.class).find(Appointment.class, 2));
+        cal.set(2015, 8, 16);
+        pp.setDatetakenonstrength(cal.getTime());
+//        pp.setPersonneldata(personneldata);
+        pp.setUnit(app.getDao(Unit.class).find(Unit.class, 3));
         od.put("commissiontype", app.getDao(Commissiontype.class).find(Commissiontype.class, (short)1));
         od.put("course", "49");
         cal.set(2002, 8, 19);
@@ -140,7 +149,7 @@ System.out.println("Setting: "+component.getName()+" to: "+value+" in UI compone
         od.put("dateofbirth", cal.getTime());
         od.put("firstname", "Chinomso");
         od.put("gender", app.getDao(Gender.class).find(Gender.class, (short)1));
-        od.put("localgovernmentarea", "BENDE");
+        od.put("localgovernmentarea", app.getDao(Localgovernmentarea.class).find(Localgovernmentarea.class, 3));
         od.put("middlename", "Bassey");
 //        pd.setOfficersdata(od);
         od.put("rank", app.getDao(Rank.class).find(Rank.class, (short)6));
@@ -157,34 +166,38 @@ System.out.println("Setting: "+component.getName()+" to: "+value+" in UI compone
     private Map<String, Object> getData_old(App app) {
         final Calendar cal = Calendar.getInstance();
         cal.clear();
-        final Officersdata od = new Officersdata();
-        od.setCommissiontype(app.getDao(Commissiontype.class).find(Commissiontype.class, (short)1));
-        od.setCourse("49");
+        Personnelposting persposting = new Personnelposting();
+        persposting.setAppointment(app.getDao(Appointment.class).find(Appointment.class, 2));
+        cal.set(2015, 8, 16);
+        persposting.setDatetakenonstrength(cal.getTime());
+        persposting.setUnit(app.getDao(Unit.class).find(Unit.class, 3));
+        
+        final Officersdata offrsdata = new Officersdata();
+        offrsdata.setCommissiontype(app.getDao(Commissiontype.class).find(Commissiontype.class, (short)1));
+        offrsdata.setCourseonentry("49");
         cal.set(2002, 8, 19);
-        od.setDateofcommission(cal.getTime());
-        final Personneldata pd = new Personneldata();
-        pd.setAppointment(app.getDao(Appointment.class).find(Appointment.class, 2));
+        offrsdata.setDateofcommission(cal.getTime());
+        
+        final Personneldata persdata = new Personneldata();
+        persposting.setPersonneldata(persdata);
+        
         cal.set(1978, 4, 9);
-        pd.setDateofbirth(cal.getTime());
-        pd.setFirstname("Chinomso");
-        pd.setGender(app.getDao(Gender.class).find(Gender.class, (short)1));
-        pd.setLocalgovernmentarea("BENDE");
-        pd.setMiddlename("Bassey");
-        pd.setOfficersdata(od);
-        pd.setRank(app.getDao(Rank.class).find(Rank.class, (short)6));
+        persdata.setDateofbirth(cal.getTime());
+        persdata.setFirstname("Chinomso");
+        persdata.setGender(app.getDao(Gender.class).find(Gender.class, (short)1));
+        persdata.setLocalgovernmentarea(app.getDao(Localgovernmentarea.class).find(Localgovernmentarea.class, (short)1));
+        persdata.setMiddlename("Bassey");
+        persdata.setOfficersdata(offrsdata);
+        persdata.setRank(app.getDao(Rank.class).find(Rank.class, (short)6));
         cal.set(2015, 8, 19);
-        pd.setSeniority(cal.getTime());
-        pd.setServicenumber("2597");
-        pd.setStateoforigin(app.getDao(Stateoforigin.class).find(Stateoforigin.class, (short)1));
-        pd.setSurname("Ikwuagwu");
-        od.setPersonneldata(pd);
-        od.setSpeciality(app.getDao(Speciality.class).find(Speciality.class, (short)1));
+        persdata.setSeniority(cal.getTime());
+        persdata.setServicenumber("2597");
+        persdata.setSurname("Ikwuagwu");
+        offrsdata.setPersonneldata(persdata);
+        offrsdata.setSpeciality(app.getDao(Speciality.class).find(Speciality.class, (short)1));
         
-        final Predicate<String> columnNameTest = new Equals(Personneldata_.airmansdata.getName()).negate();
-        
-        final Map map = app.get(MapBuilder.class)
-                .methodFilter(new MethodFilterImpl((PdmApp)app, columnNameTest))
-                .source(od)
+        final Map map = app.getOrException(MapBuilder.class)
+                .source(offrsdata)
                 .build();
         return map;
     }

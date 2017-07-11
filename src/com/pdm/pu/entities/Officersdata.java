@@ -18,9 +18,7 @@ package com.pdm.pu.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -31,16 +29,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
- * @author Chinomso Bassey Ikwuagwu on Mar 29, 2017 10:13:09 PM
+ * @author Chinomso Bassey Ikwuagwu on Jun 6, 2017 9:09:33 PM
  */
 @Entity
 @Table(name = "officersdata")
@@ -48,7 +44,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Officersdata.findAll", query = "SELECT o FROM Officersdata o"),
     @NamedQuery(name = "Officersdata.findByOfficersdataid", query = "SELECT o FROM Officersdata o WHERE o.officersdataid = :officersdataid"),
-    @NamedQuery(name = "Officersdata.findByCourse", query = "SELECT o FROM Officersdata o WHERE o.course = :course"),
+    @NamedQuery(name = "Officersdata.findByCourseonentry", query = "SELECT o FROM Officersdata o WHERE o.courseonentry = :courseonentry"),
     @NamedQuery(name = "Officersdata.findByDateofcommission", query = "SELECT o FROM Officersdata o WHERE o.dateofcommission = :dateofcommission")})
 public class Officersdata implements Serializable {
 
@@ -58,23 +54,19 @@ public class Officersdata implements Serializable {
     @Basic(optional = false)
     @Column(name = "officersdataid")
     private Integer officersdataid;
-    @Basic(optional = false)
-    @Column(name = "course")
-    private String course;
-    @Basic(optional = false)
+    @Column(name = "courseonentry")
+    private String courseonentry;
     @Column(name = "dateofcommission")
     @Temporal(TemporalType.DATE)
     private Date dateofcommission;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "officersdata", fetch = FetchType.LAZY)
-    private List<Officersposting> officerspostingList;
     @JoinColumn(name = "personneldata", referencedColumnName = "personneldataid")
     @OneToOne(optional = false, fetch = FetchType.LAZY)
     private Personneldata personneldata;
     @JoinColumn(name = "commissiontype", referencedColumnName = "commissiontypeid")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Commissiontype commissiontype;
     @JoinColumn(name = "speciality", referencedColumnName = "specialityid")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Speciality speciality;
 
     public Officersdata() {
@@ -82,12 +74,6 @@ public class Officersdata implements Serializable {
 
     public Officersdata(Integer officersdataid) {
         this.officersdataid = officersdataid;
-    }
-
-    public Officersdata(Integer officersdataid, String course, Date dateofcommission) {
-        this.officersdataid = officersdataid;
-        this.course = course;
-        this.dateofcommission = dateofcommission;
     }
 
     public Integer getOfficersdataid() {
@@ -98,12 +84,12 @@ public class Officersdata implements Serializable {
         this.officersdataid = officersdataid;
     }
 
-    public String getCourse() {
-        return course;
+    public String getCourseonentry() {
+        return courseonentry;
     }
 
-    public void setCourse(String course) {
-        this.course = course;
+    public void setCourseonentry(String courseonentry) {
+        this.courseonentry = courseonentry;
     }
 
     public Date getDateofcommission() {
@@ -112,15 +98,6 @@ public class Officersdata implements Serializable {
 
     public void setDateofcommission(Date dateofcommission) {
         this.dateofcommission = dateofcommission;
-    }
-
-    @XmlTransient
-    public List<Officersposting> getOfficerspostingList() {
-        return officerspostingList;
-    }
-
-    public void setOfficerspostingList(List<Officersposting> officerspostingList) {
-        this.officerspostingList = officerspostingList;
     }
 
     public Personneldata getPersonneldata() {

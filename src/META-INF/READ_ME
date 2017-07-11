@@ -1,0 +1,5 @@
+Each Localgovernment area has a Stateoforigin
+Each Stateoforigin has many Localgovernementarea
+Initially each Personneldata contained a reference to a Localgovernmentarea
+However some data only contained Stateoforigin and not Localgovernmentarea. 
+Hence Personneldata was updated to contain both columns: localgovernmentarea and stateoforigin

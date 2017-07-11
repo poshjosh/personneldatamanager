@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- * @author Chinomso Bassey Ikwuagwu on Mar 29, 2017 10:13:09 PM
+ * @author Chinomso Bassey Ikwuagwu on Jun 6, 2017 9:09:32 PM
  */
 @Entity
 @Table(name = "appointment")
@@ -59,8 +59,6 @@ public class Appointment implements Serializable {
     @Basic(optional = false)
     @Column(name = "abbreviation")
     private String abbreviation;
-    @OneToMany(mappedBy = "appointment", fetch = FetchType.LAZY)
-    private List<Officersposting> officerspostingList;
     @JoinColumn(name = "appointmenttype", referencedColumnName = "appointmenttypeid")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Appointmenttype appointmenttype;
@@ -69,13 +67,8 @@ public class Appointment implements Serializable {
     @JoinColumn(name = "parentappointment", referencedColumnName = "appointmentid")
     @ManyToOne(fetch = FetchType.LAZY)
     private Appointment parentappointment;
-    @JoinColumn(name = "unit", referencedColumnName = "unitid")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Unit unit;
     @OneToMany(mappedBy = "appointment", fetch = FetchType.LAZY)
-    private List<Airmansposting> airmanspostingList;
-    @OneToMany(mappedBy = "appointment", fetch = FetchType.LAZY)
-    private List<Personneldata> personneldataList;
+    private List<Personnelposting> personnelpostingList;
 
     public Appointment() {
     }
@@ -114,15 +107,6 @@ public class Appointment implements Serializable {
         this.abbreviation = abbreviation;
     }
 
-    @XmlTransient
-    public List<Officersposting> getOfficerspostingList() {
-        return officerspostingList;
-    }
-
-    public void setOfficerspostingList(List<Officersposting> officerspostingList) {
-        this.officerspostingList = officerspostingList;
-    }
-
     public Appointmenttype getAppointmenttype() {
         return appointmenttype;
     }
@@ -148,30 +132,13 @@ public class Appointment implements Serializable {
         this.parentappointment = parentappointment;
     }
 
-    public Unit getUnit() {
-        return unit;
-    }
-
-    public void setUnit(Unit unit) {
-        this.unit = unit;
-    }
-
     @XmlTransient
-    public List<Airmansposting> getAirmanspostingList() {
-        return airmanspostingList;
+    public List<Personnelposting> getPersonnelpostingList() {
+        return personnelpostingList;
     }
 
-    public void setAirmanspostingList(List<Airmansposting> airmanspostingList) {
-        this.airmanspostingList = airmanspostingList;
-    }
-
-    @XmlTransient
-    public List<Personneldata> getPersonneldataList() {
-        return personneldataList;
-    }
-
-    public void setPersonneldataList(List<Personneldata> personneldataList) {
-        this.personneldataList = personneldataList;
+    public void setPersonnelpostingList(List<Personnelposting> personnelpostingList) {
+        this.personnelpostingList = personnelpostingList;
     }
 
     @Override

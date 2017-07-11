@@ -18,6 +18,7 @@ package com.pdm;
 
 import com.bc.appbase.App;
 import com.pdm.ui.PdmUIContext;
+import java.util.Set;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Mar 30, 2017 6:32:11 PM
@@ -26,4 +27,6 @@ public interface PdmApp extends App {
 
     @Override
     public PdmUIContext getUIContext();
+    
+    public Set<Class> getSupportedEntityTypes();
 }

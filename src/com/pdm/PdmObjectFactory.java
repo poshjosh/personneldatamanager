@@ -16,40 +16,48 @@
 
 package com.pdm;
 
-import com.bc.appbase.ObjectFactory;
-import com.bc.appbase.ObjectFactoryImpl;
+import com.bc.appbase.ObjectFactoryBase;
 import com.pdm.jpa.PdmSelectionContext;
-import com.bc.appcore.exceptions.ObjectFactoryException;
-import com.bc.appcore.jpa.EntityMapBuilder;
 import com.bc.appcore.jpa.SelectionContext;
-import com.bc.util.MapBuilder;
+import com.bc.appbase.jpa.EntityStructureFactory;
+import com.bc.appbase.xls.SheetProcessorContext;
+import com.bc.appcore.ObjectFactory;
+import com.pdm.jpa.PdmEntityStructureFactory;
+import com.pdm.xls.PdmSheetProcessorContext;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Mar 29, 2017 4:15:56 PM
  */
-public class PdmObjectFactory extends ObjectFactoryImpl {
+public class PdmObjectFactory extends ObjectFactoryBase {
 
     public PdmObjectFactory(PdmApp app) {
         super(app);
     }
 
     @Override
-    public <T> T get(Class<T> type) {
+    public <T> T doGetOrException(Class<T> type) throws Exception {
         Object output;
-        if(type.equals(SelectionContext.class)){
-            output = new PdmSelectionContext(this.getApp());
-        }else if(type.equals(MapBuilder.class)){
-            output = new EntityMapBuilder(this.getApp())
-                    .nullsAllowed(true).maxCollectionSize(0).maxDepth(3);
-        }else if(type.equals(ObjectFactory.class)){
+        if(type.equals(ObjectFactory.class)){
+            
             output = new PdmObjectFactory(this.getApp());
+            
+        }else if(type.equals(EntityStructureFactory.class)){
+            
+            output = new PdmEntityStructureFactory(this.getApp());
+
+        }else if(type.equals(SelectionContext.class)){
+            
+            output = new PdmSelectionContext(this.getApp());
+            
+        }else if(type.equals(SheetProcessorContext.class)){
+            
+            output = new PdmSheetProcessorContext(this.getApp());
+            
         }else{
-            try{
-                output = super.get(type);
-            }catch(ObjectFactoryException e) {
-                throw new RuntimeException(e);
-            }
+            
+            output = super.doGetOrException(type);
         }  
+        
         return (T)output;
     }
 

@@ -1,0 +1,11 @@
+Let multiple values be separated by a comma
+
+A comma must not appear elsewhere in the data being separated by comma
+
+Gender cannot be null
+
+HQ NAF is not a unit, please specify actual unit i.e Branch, Directorate etc
+
+Use new unit nomenclature e.g do not use 31 Comms Group
+
+For names: put surname first, select surname first

@@ -18,9 +18,7 @@ package com.pdm.pu.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -31,16 +29,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
- * @author Chinomso Bassey Ikwuagwu on Mar 29, 2017 10:13:09 PM
+ * @author Chinomso Bassey Ikwuagwu on Jun 6, 2017 9:09:33 PM
  */
 @Entity
 @Table(name = "airmansdata")
@@ -57,20 +53,17 @@ public class Airmansdata implements Serializable {
     @Basic(optional = false)
     @Column(name = "airmansdataid")
     private Integer airmansdataid;
-    @Basic(optional = false)
     @Column(name = "dateofenlistment")
     @Temporal(TemporalType.DATE)
     private Date dateofenlistment;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "airmansdata", fetch = FetchType.LAZY)
-    private List<Airmansposting> airmanspostingList;
     @JoinColumn(name = "personneldata", referencedColumnName = "personneldataid")
     @OneToOne(optional = false, fetch = FetchType.LAZY)
     private Personneldata personneldata;
     @JoinColumn(name = "trade", referencedColumnName = "tradeid")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Trade trade;
     @JoinColumn(name = "grade", referencedColumnName = "gradeid")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Grade grade;
 
     public Airmansdata() {
@@ -78,11 +71,6 @@ public class Airmansdata implements Serializable {
 
     public Airmansdata(Integer airmansdataid) {
         this.airmansdataid = airmansdataid;
-    }
-
-    public Airmansdata(Integer airmansdataid, Date dateofenlistment) {
-        this.airmansdataid = airmansdataid;
-        this.dateofenlistment = dateofenlistment;
     }
 
     public Integer getAirmansdataid() {
@@ -99,15 +87,6 @@ public class Airmansdata implements Serializable {
 
     public void setDateofenlistment(Date dateofenlistment) {
         this.dateofenlistment = dateofenlistment;
-    }
-
-    @XmlTransient
-    public List<Airmansposting> getAirmanspostingList() {
-        return airmanspostingList;
-    }
-
-    public void setAirmanspostingList(List<Airmansposting> airmanspostingList) {
-        this.airmanspostingList = airmanspostingList;
     }
 
     public Personneldata getPersonneldata() {

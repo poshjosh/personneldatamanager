@@ -34,21 +34,24 @@ import com.pdm.pu.entities.Gender;
 import com.pdm.pu.entities.Gender_;
 import com.pdm.pu.entities.Grade;
 import com.pdm.pu.entities.Grade_;
+import com.pdm.pu.entities.Localgovernmentarea;
+import com.pdm.pu.entities.Localgovernmentarea_;
 import com.pdm.pu.entities.Officersdata;
 import com.pdm.pu.entities.Officersdata_;
 import com.pdm.pu.entities.Personneldata;
 import com.pdm.pu.entities.Personneldata_;
+import com.pdm.pu.entities.Personnelposting;
+import com.pdm.pu.entities.Personnelposting_;
 import com.pdm.pu.entities.Rank;
 import com.pdm.pu.entities.Rank_;
 import com.pdm.pu.entities.Speciality;
 import com.pdm.pu.entities.Speciality_;
-import com.pdm.pu.entities.Stateoforigin;
-import com.pdm.pu.entities.Stateoforigin_;
 import com.pdm.pu.entities.Trade;
 import com.pdm.pu.entities.Trade_;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.criteria.JoinType;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Apr 16, 2017 10:41:31 PM
@@ -61,7 +64,7 @@ public class SearchOld implements Action<App, SearchResults> {
     public SearchResults execute(App app, Map<String, Object> params) 
             throws ParameterException, TaskExecutionException {
         
-        final Class resultType = (Class)params.get(ParamNames.RESULT_TYPE);
+        final Class resultType = (Class)params.get(ParamNames.ENTITY_TYPE);
         final String query = (String)params.get("query");
 
         if(query == null || query.trim().isEmpty()) {
@@ -113,7 +116,7 @@ public class SearchOld implements Action<App, SearchResults> {
     
     public void searchOfficersdata(BuilderForSelect<Officersdata> dao, String query) {
         dao.search(Officersdata.class, query, 
-                Officersdata_.course.getName())
+                Officersdata_.courseonentry.getName())
         .join(Officersdata.class, Officersdata_.commissiontype.getName(), Commissiontype.class)
         .search(Commissiontype.class, query, 
                 Commissiontype_.abbreviation.getName(), Commissiontype_.commissiontype.getName())
@@ -137,7 +140,8 @@ public class SearchOld implements Action<App, SearchResults> {
                 Personneldata_.middlename.getName(), Personneldata_.servicenumber.getName(),
                 Personneldata_.surname.getName()
         )
-        .join(Personneldata.class, Personneldata_.appointment.getName(), Appointment.class)
+        .join(Personneldata.class, Personneldata_.personnelpostingList.getName(), JoinType.LEFT, Personnelposting.class)
+        .join(Personnelposting.class, Personnelposting_.appointment.getName(), Appointment.class)
         .search(Appointment.class, query, 
                 Appointment_.abbreviation.getName(), Appointment_.appointment.getName())
         .join(Personneldata.class, Personneldata_.gender.getName(), Gender.class)
@@ -146,7 +150,8 @@ public class SearchOld implements Action<App, SearchResults> {
         .join(Personneldata.class, Personneldata_.rank.getName(), Rank.class)
         .search(Rank.class, query, 
                 Rank_.abbreviation.getName(), Rank_.rank.getName())
-        .join(Personneldata.class, Personneldata_.stateoforigin.getName(), Stateoforigin.class)
-        .search(Stateoforigin.class, query, Stateoforigin_.stateoforigin.getName());
+        .join(Personneldata.class, Personneldata_.localgovernmentarea.getName(), Localgovernmentarea.class)
+        .search(Localgovernmentarea.class, query, Localgovernmentarea_.localgovernmentarea.getName());
+        
     }
 }

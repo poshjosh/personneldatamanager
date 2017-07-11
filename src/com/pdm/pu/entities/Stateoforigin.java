@@ -23,6 +23,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -32,7 +34,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- * @author Chinomso Bassey Ikwuagwu on Mar 29, 2017 10:13:08 PM
+ * @author Chinomso Bassey Ikwuagwu on Jun 6, 2017 9:09:32 PM
  */
 @Entity
 @Table(name = "stateoforigin")
@@ -45,6 +47,7 @@ public class Stateoforigin implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "stateoforiginid")
     private Short stateoforiginid;
@@ -52,7 +55,7 @@ public class Stateoforigin implements Serializable {
     @Column(name = "stateoforigin")
     private String stateoforigin;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "stateoforigin", fetch = FetchType.LAZY)
-    private List<Personneldata> personneldataList;
+    private List<Localgovernmentarea> localgovernmentareaList;
 
     public Stateoforigin() {
     }
@@ -83,12 +86,12 @@ public class Stateoforigin implements Serializable {
     }
 
     @XmlTransient
-    public List<Personneldata> getPersonneldataList() {
-        return personneldataList;
+    public List<Localgovernmentarea> getLocalgovernmentareaList() {
+        return localgovernmentareaList;
     }
 
-    public void setPersonneldataList(List<Personneldata> personneldataList) {
-        this.personneldataList = personneldataList;
+    public void setLocalgovernmentareaList(List<Localgovernmentarea> localgovernmentareaList) {
+        this.localgovernmentareaList = localgovernmentareaList;
     }
 
     @Override

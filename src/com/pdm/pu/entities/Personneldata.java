@@ -18,6 +18,7 @@ package com.pdm.pu.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -30,14 +31,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
- * @author Chinomso Bassey Ikwuagwu on Mar 29, 2017 10:13:09 PM
+ * @author Chinomso Bassey Ikwuagwu on Jun 6, 2017 9:09:33 PM
  */
 @Entity
 @Table(name = "personneldata")
@@ -51,7 +54,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Personneldata.findBySurname", query = "SELECT p FROM Personneldata p WHERE p.surname = :surname"),
     @NamedQuery(name = "Personneldata.findBySeniority", query = "SELECT p FROM Personneldata p WHERE p.seniority = :seniority"),
     @NamedQuery(name = "Personneldata.findByDateofbirth", query = "SELECT p FROM Personneldata p WHERE p.dateofbirth = :dateofbirth"),
-    @NamedQuery(name = "Personneldata.findByLocalgovernmentarea", query = "SELECT p FROM Personneldata p WHERE p.localgovernmentarea = :localgovernmentarea")})
+    @NamedQuery(name = "Personneldata.findByMobilephonenumber1", query = "SELECT p FROM Personneldata p WHERE p.mobilephonenumber1 = :mobilephonenumber1"),
+    @NamedQuery(name = "Personneldata.findByMobilephonenumber2", query = "SELECT p FROM Personneldata p WHERE p.mobilephonenumber2 = :mobilephonenumber2"),
+    @NamedQuery(name = "Personneldata.findByEmailaddress", query = "SELECT p FROM Personneldata p WHERE p.emailaddress = :emailaddress")})
 public class Personneldata implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -66,23 +71,27 @@ public class Personneldata implements Serializable {
     @Basic(optional = false)
     @Column(name = "firstname")
     private String firstname;
-    @Basic(optional = false)
     @Column(name = "middlename")
     private String middlename;
     @Basic(optional = false)
     @Column(name = "surname")
     private String surname;
-    @Basic(optional = false)
     @Column(name = "seniority")
     @Temporal(TemporalType.DATE)
     private Date seniority;
-    @Basic(optional = false)
     @Column(name = "dateofbirth")
     @Temporal(TemporalType.DATE)
     private Date dateofbirth;
-    @Basic(optional = false)
-    @Column(name = "localgovernmentarea")
-    private String localgovernmentarea;
+    @Column(name = "mobilephonenumber1")
+    private String mobilephonenumber1;
+    @Column(name = "mobilephonenumber2")
+    private String mobilephonenumber2;
+    @Column(name = "emailaddress")
+    private String emailaddress;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "personneldata", fetch = FetchType.LAZY)
+    private List<Courseattended> courseattendedList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "personneldata", fetch = FetchType.LAZY)
+    private List<Personnelposting> personnelpostingList;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "personneldata", fetch = FetchType.LAZY)
     private Officersdata officersdata;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "personneldata", fetch = FetchType.LAZY)
@@ -90,15 +99,12 @@ public class Personneldata implements Serializable {
     @JoinColumn(name = "rank", referencedColumnName = "rankid")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Rank rank;
-    @JoinColumn(name = "appointment", referencedColumnName = "appointmentid")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Appointment appointment;
     @JoinColumn(name = "gender", referencedColumnName = "genderid")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Gender gender;
-    @JoinColumn(name = "stateoforigin", referencedColumnName = "stateoforiginid")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Stateoforigin stateoforigin;
+    @JoinColumn(name = "localgovernmentarea", referencedColumnName = "localgovernmentareaid")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Localgovernmentarea localgovernmentarea;
 
     public Personneldata() {
     }
@@ -107,15 +113,11 @@ public class Personneldata implements Serializable {
         this.personneldataid = personneldataid;
     }
 
-    public Personneldata(Integer personneldataid, String servicenumber, String firstname, String middlename, String surname, Date seniority, Date dateofbirth, String localgovernmentarea) {
+    public Personneldata(Integer personneldataid, String servicenumber, String firstname, String surname) {
         this.personneldataid = personneldataid;
         this.servicenumber = servicenumber;
         this.firstname = firstname;
-        this.middlename = middlename;
         this.surname = surname;
-        this.seniority = seniority;
-        this.dateofbirth = dateofbirth;
-        this.localgovernmentarea = localgovernmentarea;
     }
 
     public Integer getPersonneldataid() {
@@ -174,12 +176,46 @@ public class Personneldata implements Serializable {
         this.dateofbirth = dateofbirth;
     }
 
-    public String getLocalgovernmentarea() {
-        return localgovernmentarea;
+    public String getMobilephonenumber1() {
+        return mobilephonenumber1;
     }
 
-    public void setLocalgovernmentarea(String localgovernmentarea) {
-        this.localgovernmentarea = localgovernmentarea;
+    public void setMobilephonenumber1(String mobilephonenumber1) {
+        this.mobilephonenumber1 = mobilephonenumber1;
+    }
+
+    public String getMobilephonenumber2() {
+        return mobilephonenumber2;
+    }
+
+    public void setMobilephonenumber2(String mobilephonenumber2) {
+        this.mobilephonenumber2 = mobilephonenumber2;
+    }
+
+    public String getEmailaddress() {
+        return emailaddress;
+    }
+
+    public void setEmailaddress(String emailaddress) {
+        this.emailaddress = emailaddress;
+    }
+
+    @XmlTransient
+    public List<Courseattended> getCourseattendedList() {
+        return courseattendedList;
+    }
+
+    public void setCourseattendedList(List<Courseattended> courseattendedList) {
+        this.courseattendedList = courseattendedList;
+    }
+
+    @XmlTransient
+    public List<Personnelposting> getPersonnelpostingList() {
+        return personnelpostingList;
+    }
+
+    public void setPersonnelpostingList(List<Personnelposting> personnelpostingList) {
+        this.personnelpostingList = personnelpostingList;
     }
 
     public Officersdata getOfficersdata() {
@@ -206,14 +242,6 @@ public class Personneldata implements Serializable {
         this.rank = rank;
     }
 
-    public Appointment getAppointment() {
-        return appointment;
-    }
-
-    public void setAppointment(Appointment appointment) {
-        this.appointment = appointment;
-    }
-
     public Gender getGender() {
         return gender;
     }
@@ -222,12 +250,12 @@ public class Personneldata implements Serializable {
         this.gender = gender;
     }
 
-    public Stateoforigin getStateoforigin() {
-        return stateoforigin;
+    public Localgovernmentarea getLocalgovernmentarea() {
+        return localgovernmentarea;
     }
 
-    public void setStateoforigin(Stateoforigin stateoforigin) {
-        this.stateoforigin = stateoforigin;
+    public void setLocalgovernmentarea(Localgovernmentarea localgovernmentarea) {
+        this.localgovernmentarea = localgovernmentarea;
     }
 
     @Override

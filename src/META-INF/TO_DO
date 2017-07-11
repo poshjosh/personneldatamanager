@@ -1,4 +1,49 @@
-some times Regular Commission, others RC displayed in SearchResults
+There should be personnel status i.e late,active,inactive,retired,reserve etc
+Table for course attended
+When importing headings before lead row causes problems
+Some imports failed but we didn't get full logs
+
+
+For Add and Edit postings/units and courseattended shouldn't show
+for View postings/units and courseattended are not well displayed
+
+Meaning of 305 SMG
+DHQ Garr
+Last Directorate in Logistics
+insert into `loosebox_pdm`.unit VALUES(, 'Nigerian Air Force Mother & Child Hospital', 9, 'NAF M&C Hosp', null, null);
+insert into `loosebox_pdm`.unit VALUES(, 'Air Force Research and Development Center', 9, 'AFRDC', null, null);
+In summary report click same column twice doesn't display results, try same row too
+On completion of IMPORT DATA display success
+log all errors to a UI
+
+
+Location=latitude,longitude
+Place=Location,Address
+Address=streetaddress,city,LGA,State,Country
+
+
+
+
+A person may add an appointment, thereafter add a wrong unit (e.g AA-CAS, TAC)
+Should an appointment have a unit???
+
+Only one in a list of 2 courses added is showing
+Form.validation
+Same posting was added twice each with unique personnelpostingid
+Same courseattended was added twice each with unique courseattendedid
+Only once courseattended was observed
+
+When viewing records, empty records should not be displayed
+Test insert without using EntitySortOrder
+In EntityStructureFactory.pushMapValuesDown Map values that are not selectionTypes should not be push down
+Search is not working fully
+Format date displayed in table
+Put totals below summary report
+Form.editable, Form.mandatoryFields
+
+
+---------------------------------
+Address, location, etc needs countries of the world
 
 How to represent tri-service units in database
 Add description to form input

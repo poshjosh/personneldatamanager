@@ -36,7 +36,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- * @author Chinomso Bassey Ikwuagwu on Mar 29, 2017 10:13:09 PM
+ * @author Chinomso Bassey Ikwuagwu on Jun 6, 2017 9:09:32 PM
  */
 @Entity
 @Table(name = "unit")
@@ -45,7 +45,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Unit.findAll", query = "SELECT u FROM Unit u"),
     @NamedQuery(name = "Unit.findByUnitid", query = "SELECT u FROM Unit u WHERE u.unitid = :unitid"),
     @NamedQuery(name = "Unit.findByUnit", query = "SELECT u FROM Unit u WHERE u.unit = :unit"),
-    @NamedQuery(name = "Unit.findByAbbreviation", query = "SELECT u FROM Unit u WHERE u.abbreviation = :abbreviation")})
+    @NamedQuery(name = "Unit.findByAbbreviation", query = "SELECT u FROM Unit u WHERE u.abbreviation = :abbreviation"),
+    @NamedQuery(name = "Unit.findByUnitsortorder", query = "SELECT u FROM Unit u WHERE u.unitsortorder = :unitsortorder")})
 public class Unit implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -60,12 +61,10 @@ public class Unit implements Serializable {
     @Basic(optional = false)
     @Column(name = "abbreviation")
     private String abbreviation;
+    @Column(name = "unitsortorder")
+    private Integer unitsortorder;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "unit", fetch = FetchType.LAZY)
-    private List<Officersposting> officerspostingList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unit", fetch = FetchType.LAZY)
-    private List<Appointment> appointmentList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unit", fetch = FetchType.LAZY)
-    private List<Airmansposting> airmanspostingList;
+    private List<Personnelposting> personnelpostingList;
     @JoinColumn(name = "unittype", referencedColumnName = "unittypeid")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Unittype unittype;
@@ -112,31 +111,21 @@ public class Unit implements Serializable {
         this.abbreviation = abbreviation;
     }
 
-    @XmlTransient
-    public List<Officersposting> getOfficerspostingList() {
-        return officerspostingList;
+    public Integer getUnitsortorder() {
+        return unitsortorder;
     }
 
-    public void setOfficerspostingList(List<Officersposting> officerspostingList) {
-        this.officerspostingList = officerspostingList;
-    }
-
-    @XmlTransient
-    public List<Appointment> getAppointmentList() {
-        return appointmentList;
-    }
-
-    public void setAppointmentList(List<Appointment> appointmentList) {
-        this.appointmentList = appointmentList;
+    public void setUnitsortorder(Integer unitsortorder) {
+        this.unitsortorder = unitsortorder;
     }
 
     @XmlTransient
-    public List<Airmansposting> getAirmanspostingList() {
-        return airmanspostingList;
+    public List<Personnelposting> getPersonnelpostingList() {
+        return personnelpostingList;
     }
 
-    public void setAirmanspostingList(List<Airmansposting> airmanspostingList) {
-        this.airmanspostingList = airmanspostingList;
+    public void setPersonnelpostingList(List<Personnelposting> personnelpostingList) {
+        this.personnelpostingList = personnelpostingList;
     }
 
     public Unittype getUnittype() {
