@@ -23,12 +23,6 @@ public interface ConfigNames {
     
     String COLUMNNAMES_SERIAL = "columnNames.serial";
     
-    String LOOK_AND_FEEL = "lookAndFeel";
-    
-    String INSTALLED = "installed";
-    
-    String PERSISTENCE_FILE = "persistenceFile";
-    
     String SEARCHRESULTS_PAGESIZE = "searchresultsPagesize";
     
     String SEARCHRESULTS_USECACHE = "searchresultsUsecache";

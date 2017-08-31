@@ -74,10 +74,6 @@ public class PdmMainFrame extends MainFrame {
         importExcelDataMenuItem.setFont(menuFont);
         importExcelDataMenuItem.setText("Import Excel Data");
         fileMenu.add(importExcelDataMenuItem);
-        
-        
-        
-        this.addHelpMenu();
     }
 
     @Override

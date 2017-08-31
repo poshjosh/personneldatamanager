@@ -24,13 +24,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import com.pdm.ui.actions.PdmActionCommands;
+import javax.swing.JFrame;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Mar 30, 2017 6:37:57 PM
  */
-public class PdmUIContextImpl extends com.bc.appbase.ui.UIContexBase implements PdmUIContext {
+public class PdmUIContextImpl extends com.bc.appbase.ui.UIContextBase implements PdmUIContext {
 
-    public PdmUIContextImpl(App app, ImageIcon imageIcon, PdmMainFrame mainFrame) {
+    public PdmUIContextImpl(App app, ImageIcon imageIcon, JFrame mainFrame) {
         super(app, imageIcon, mainFrame);
     }
 

@@ -19,9 +19,8 @@ package com.pdm.ui.actions;
 import com.bc.appbase.App;
 import com.bc.appbase.ui.actions.CreateAndUpdateEntityFromUI;
 import com.bc.appbase.ui.actions.ParamNames;
-import com.bc.appcore.actions.TaskExecutionException;
+import com.bc.appcore.exceptions.TaskExecutionException;
 import com.bc.appcore.parameter.ParameterException;
-import com.pdm.jpa.EntityInsertOrderComparator;
 import com.pdm.pu.entities.Courseattended;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +38,6 @@ public class AddCourseattendedFromUI extends CreateAndUpdateEntityFromUI<Object>
         
         params = new HashMap(params);
         params.put(ParamNames.ENTITY_TYPE, Courseattended.class);
-        params.put(java.util.Comparator.class.getName(), new EntityInsertOrderComparator(app));
         
         return super.execute(app, params); 
     }

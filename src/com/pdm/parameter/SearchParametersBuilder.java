@@ -16,12 +16,12 @@
 
 package com.pdm.parameter;
 
-import com.bc.appcore.AppCore;
 import com.bc.appcore.parameter.ParameterException;
 import com.bc.appcore.parameter.ParametersBuilder;
 import com.pdm.ui.SearchPanel;
 import java.util.HashMap;
 import java.util.Map;
+import com.bc.appcore.AppCore;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Apr 1, 2017 2:34:47 PM

@@ -32,7 +32,9 @@ public class EntityStructureFactoryTest {
 
     public static void main(String [] args) {
         
-        final EntityStructureFactoryImpl esf = new EntityStructureFactoryImpl(new DummyApp());
+        final PdmApp app = TestApp.getInstance(true);
+        
+        final EntityStructureFactoryImpl esf = new EntityStructureFactoryImpl(app);
         
         Map root = new LinkedHashMap();
         final Object key = "Map Key";

@@ -17,13 +17,13 @@
 package com.pdm;
 
 import com.bc.appbase.App;
-import com.bc.appbase.AppLauncher;
 import com.bc.jpa.util.EntityFromMapBuilder;
 import com.bc.util.MapBuilder;
 import com.pdm.pu.entities.Officersdata;
 import com.pdm.pu.entities.Personneldata;
 import com.pdm.pu.entities.Personnelposting;
 import com.bc.appbase.jpa.EntityFromMapBuilderDataFormatter;
+import com.bc.appcore.AppLauncherCore;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -42,7 +42,7 @@ public class EntityFromMapBuilderImplTest {
         
         final boolean productionMode = true;
         
-        final AppLauncher<PdmApp> launcher = new PdmAppLauncher(false, productionMode){
+        final AppLauncherCore<PdmApp> launcher = new AppLauncherImpl(productionMode){
             @Override
             public void onLaunchCompleted(PdmApp app) {
                 try{
@@ -53,11 +53,7 @@ public class EntityFromMapBuilderImplTest {
             }
         };
         
-        try{
-            launcher.launch(new String[0]);
-        }catch(Throwable t) {
-            launcher.showErrorMessageAndExit(t);
-        }
+        launcher.launch(new String[0]);
     }
     
     public void onLaunchCompleted(App app) {

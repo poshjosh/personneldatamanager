@@ -20,7 +20,7 @@ import com.bc.appbase.App;
 import com.bc.appbase.xls.impl.TextCellSpliter;
 import com.bc.appcore.util.SingleElementFixedSizeList;
 import com.pdm.PdmApp;
-import com.pdm.PdmAppLauncher;
+import com.pdm.AppLauncherImpl;
 import com.pdm.pu.entities.Airmansdata_;
 import com.pdm.pu.entities.Course_;
 import com.pdm.pu.entities.Gender_;
@@ -36,7 +36,7 @@ import java.util.Map;
 import java.util.function.Function;
 import jxl.Cell;
 import com.bc.appbase.xls.SheetProcessorContext;
-import com.bc.appcore.actions.TaskExecutionException;
+import com.bc.appcore.exceptions.TaskExecutionException;
 import com.bc.appcore.parameter.ParameterException;
 import org.junit.Test;
 import com.pdm.ui.actions.PdmActionCommands;
@@ -51,30 +51,16 @@ public class ImportSheetDataTest {
         
         final boolean productionMode = false;
         
-        final PdmAppLauncher launcher = new PdmAppLauncher(false, productionMode){
-            @Override
-            public PdmApp launch(String[] args) {
-                
-                final PdmApp app = super.launch(args);
-                
-                try{
-                    
-                    this.waitTillCompletion();
-                
-                    postLaunch(app);
-                    
-                }catch(InterruptedException e) {
-                    e.printStackTrace();
-                }
-                
-                return app;
-            }
-        };
+        final AppLauncherImpl launcher = new AppLauncherImpl(productionMode);
+        
+        final PdmApp app = launcher.launch(new String[0]);
         
         try{
-            launcher.launch(new String[0]);
-        }catch(Throwable t) {
-            launcher.showErrorMessageAndExit(t);
+            launcher.waitTillCompletion();
+        }catch(InterruptedException e) {
+            e.printStackTrace();
+        }finally{
+            postLaunch(app);
         }
     }
     

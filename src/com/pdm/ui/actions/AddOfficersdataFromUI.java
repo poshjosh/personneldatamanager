@@ -21,9 +21,8 @@ import java.util.Map;
 import com.bc.appbase.App;
 import com.bc.appbase.ui.actions.CreateAndUpdateEntityFromUI;
 import com.bc.appbase.ui.actions.ParamNames;
-import com.bc.appcore.actions.TaskExecutionException;
+import com.bc.appcore.exceptions.TaskExecutionException;
 import com.bc.appcore.parameter.ParameterException;
-import com.pdm.jpa.EntityInsertOrderComparator;
 import java.util.HashMap;
 
 /**
@@ -39,7 +38,6 @@ public class AddOfficersdataFromUI extends CreateAndUpdateEntityFromUI<Object> {
         
         params = new HashMap(params);
         params.put(ParamNames.ENTITY_TYPE, Officersdata.class);
-        params.put(java.util.Comparator.class.getName(), new EntityInsertOrderComparator(app));
         
         return super.execute(app, params); 
     }

@@ -22,7 +22,9 @@ import com.bc.appcore.jpa.SelectionContext;
 import com.bc.appbase.jpa.EntityStructureFactory;
 import com.bc.appbase.xls.SheetProcessorContext;
 import com.bc.appcore.ObjectFactory;
+import com.bc.appcore.User;
 import com.pdm.jpa.PdmEntityStructureFactory;
+import com.pdm.pu.entities.Appointment;
 import com.pdm.xls.PdmSheetProcessorContext;
 
 /**
@@ -40,6 +42,10 @@ public class PdmObjectFactory extends ObjectFactoryBase {
         if(type.equals(ObjectFactory.class)){
             
             output = new PdmObjectFactory(this.getApp());
+            
+        }else if(type.equals(User.class)){
+            
+            output = new PdmUserImpl(getApp().getJpaContext().getDao(Appointment.class).find(Appointment.class, 1));
             
         }else if(type.equals(EntityStructureFactory.class)){
             

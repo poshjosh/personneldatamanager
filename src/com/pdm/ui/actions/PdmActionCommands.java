@@ -23,8 +23,6 @@ public interface PdmActionCommands extends com.bc.appbase.ui.actions.ActionComma
     
     String ABOUT = About.class.getName();
     
-    String IMPORT_SHEET_DATA = ImportSheetData.class.getName();
-
     String DISPLAY_ADD_CURRENT_ENTITY_TYPE_UI = DisplayAddCurrentEntityTypeUI.class.getName();
     String DISPLAY_EDIT_SELECTED_ENTITIES_UIS = DisplayEditSelectedEntitiesUIs.class.getName();
     String DISPLAY_ADD_PERSONNELPOSTING_UI = DisplayAddPersonnelpostingUI.class.getName();

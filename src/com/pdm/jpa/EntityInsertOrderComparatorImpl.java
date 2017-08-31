@@ -50,7 +50,7 @@ public class EntityInsertOrderComparatorImpl extends EntityInsertOrderComparator
     
     @Override
     public int getOrder(Class type) {
-        
+       
         final int order;
         if(this.getSelectionContext().isSelectionType(type)) {
             order = 100;
@@ -58,7 +58,7 @@ public class EntityInsertOrderComparatorImpl extends EntityInsertOrderComparator
             order = 200;
         }else if(type == Personneldata.class) {
             order = 300;
-        }else if(type == Courseattended.class) {
+        }else if(type == Courseattended.class) { Personnelposting pp; 
             order = 400;
         }else if(type == Personnelposting.class) {
             order = 500;

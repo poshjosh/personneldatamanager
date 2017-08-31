@@ -17,19 +17,16 @@
 package com.pdm;
 
 import com.bc.appbase.AbstractApp;
+import com.bc.appbase.App;
+import com.bc.appcore.AppContext;
 import com.bc.appbase.parameter.SelectedRecordsParametersBuilder;
+import com.bc.appbase.ui.MainFrame;
 import com.bc.appbase.ui.SearchResultsPanel;
 import com.bc.appbase.ui.UIContext;
 import com.bc.appbase.ui.actions.ParamNames;
 import com.bc.appcore.html.HtmlBuilder;
 import com.bc.appcore.jpa.model.ResultModel;
 import com.bc.appcore.parameter.ParametersBuilder;
-import com.bc.appcore.util.ExpirableCache;
-import com.bc.config.Config;
-import com.bc.config.ConfigService;
-import com.bc.jpa.JpaContext;
-import com.bc.jpa.sync.JpaSync;
-import com.bc.jpa.sync.SlaveUpdates;
 import com.pdm.jpa.PdmResultModel;
 import com.pdm.parameter.SearchParametersBuilder;
 import com.pdm.pu.entities.Airmansdata;
@@ -45,26 +42,32 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
-import java.util.Properties;
 import java.util.Set;
 import javax.persistence.EntityManager;
 import javax.swing.ImageIcon;
-import com.bc.appcore.Filenames;
 import com.bc.appcore.ObjectFactory;
 import com.bc.appcore.predicates.AcceptAll;
+import com.pdm.jpa.EntityInsertOrderComparatorImpl;
+import com.pdm.pu.entities.Appointment;
 import com.pdm.ui.actions.PdmActionCommands;
+import java.util.Comparator;
 import java.util.function.Predicate;
+import javax.swing.JFrame;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Mar 25, 2017 8:54:05 AM
  */
 public class PdmAppImpl extends AbstractApp implements PdmApp {
 
-    public PdmAppImpl(Filenames filenames, ConfigService configService, Config config, Properties settingsConfig, 
-            JpaContext jpaContext, SlaveUpdates slaveUpdates, JpaSync jpaSync, ExpirableCache expirableCache) {
-        super(filenames, configService, config, settingsConfig, jpaContext, slaveUpdates, jpaSync, expirableCache);
+    public PdmAppImpl(AppContext appContext) {
+        super(appContext);
     }
 
+    @Override
+    public ClassLoader getClassLoader() {
+        return Thread.currentThread().getContextClassLoader();
+    }
+    
     @Override
     public EntityManager getEntityManager(Class resultType) {
         return this.getJpaContext().getEntityManager(resultType);
@@ -91,11 +94,33 @@ public class PdmAppImpl extends AbstractApp implements PdmApp {
     }
     
     @Override
-    protected UIContext createUIContext() {
-        final PdmMainFrame mainFrame = new PdmMainFrame();
-        final URL iconURL = PdmApp.class.getResource("naflogo.jpg");
-        final ImageIcon imageIcon = new ImageIcon(iconURL, "NAF Logo");
+    protected MainFrame createMainFrame() {
+        return new PdmMainFrame();
+    }
+    
+    @Override
+    protected UIContext createUIContext(App app, ImageIcon imageIcon, JFrame mainFrame) {
         return new PdmUIContextImpl(this, imageIcon, mainFrame);
+    }
+
+    @Override
+    protected String getImageIconDescription(URL url) {
+        return "NAF Logo";
+    }
+    
+    @Override
+    protected URL getIconURL() {
+        return this.getClass().getResource("naflogo.jpg");
+    }
+    
+    @Override
+    public Comparator getEntityOrderComparator() {
+        return new EntityInsertOrderComparatorImpl(this);
+    }
+
+    @Override
+    public Class getUserEntityType() {
+        return Appointment.class;
     }
 
     @Override

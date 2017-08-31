@@ -16,18 +16,12 @@
 
 package com.pdm;
 
-/**
- * @author Chinomso Bassey Ikwuagwu on Mar 25, 2017 9:37:07 AM
- */
-public interface FileNames {
+import com.pdm.pu.entities.Appointment;
 
-    // @related root folder
-    //
-    String ROOT = "bcpdm";
+/**
+ * @author Chinomso Bassey Ikwuagwu on Aug 17, 2017 6:41:32 PM
+ */
+public interface PdmUser extends com.bc.appcore.User {
     
-    String CONFIGS = "configs";
-    
-    // @related logs folder
-    //
-    String LOGS = "logs";
+    Appointment getAppointment();
 }

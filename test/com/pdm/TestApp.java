@@ -16,7 +16,9 @@
 
 package com.pdm;
 
-import com.bc.appbase.AppLauncher;
+import com.bc.appcore.AppLauncherCore;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Mar 29, 2017 10:21:47 PM
@@ -27,24 +29,20 @@ public class TestApp {
     
     public static final PdmApp getInstance(boolean waitTillCompletion) {
         
-        final AppLauncher<PdmApp> launcher = new PdmAppLauncher(false, PRODUCTION_MODE);
+        final AppLauncherCore<PdmApp> launcher = new AppLauncherImpl(PRODUCTION_MODE);
         
-        try{
-            
-            final PdmApp app = launcher.launch(new String[0]);
-            
-            if(waitTillCompletion) {
+        final PdmApp app = launcher.launch(new String[0]);
+
+        if(waitTillCompletion) {
+            try{
                 launcher.waitTillCompletion();
+            }catch(InterruptedException e) {
+                Logger.getLogger(TestApp.class.getName()).log(Level.WARNING, 
+                        "Interrupted while waiting for " + launcher.getClass().getSimpleName() + "#launch(String[]) to complete", e);
             }
-            
-            return app;
-            
-        }catch(Throwable t) {
-            
-            launcher.showErrorMessageAndExit(t);
-            
-            return null;
         }
+
+        return app;
     }
 }
 

@@ -16,7 +16,6 @@
 
 package com.pdm.jpa;
 
-import com.bc.appcore.AppCore;
 import com.bc.appcore.typeprovider.TypeProvider;
 import com.bc.appcore.jpa.model.ResultModelImpl;
 import com.pdm.PdmApp;
@@ -32,6 +31,7 @@ import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import com.bc.appcore.AppCore;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on May 20, 2017 7:53:25 PM
