@@ -22,7 +22,6 @@ import com.bc.appcore.actions.Action;
 import com.bc.appcore.exceptions.TaskExecutionException;
 import com.bc.appcore.parameter.ParameterException;
 import com.bc.appcore.parameter.ParameterNotFoundException;
-import com.bc.jpa.dao.BuilderForSelect;
 import com.bc.jpa.search.SearchResults;
 import com.pdm.pu.entities.Airmansdata;
 import com.pdm.pu.entities.Airmansdata_;
@@ -52,6 +51,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.criteria.JoinType;
+import com.bc.jpa.dao.Select;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Apr 16, 2017 10:41:31 PM
@@ -75,14 +75,14 @@ public class SearchOld implements Action<App, SearchResults> {
             logger.log(Level.FINE, "Result type: {0}, query: {1}", new Object[]{resultType, query});
         }
         
-        final BuilderForSelect<?> dao;
+        final Select<?> dao;
         final String joinColumn;
         
         if(resultType == Officersdata.class) {
             
-            final BuilderForSelect<Officersdata> typeDao = app
-                    .getJpaContext()
-                    .getBuilderForSelect(resultType);
+            final Select<Officersdata> typeDao = app
+                    .getActivePersistenceUnitContext()
+                    .getDao().forSelect(resultType);
             
             typeDao.distinct(true).from(resultType);
             
@@ -93,9 +93,9 @@ public class SearchOld implements Action<App, SearchResults> {
             
         }else if (resultType == Airmansdata.class){
             
-            final BuilderForSelect<Airmansdata> typeDao = app
-                    .getJpaContext()
-                    .getBuilderForSelect(resultType);
+            final Select<Airmansdata> typeDao = app
+                    .getActivePersistenceUnitContext()
+                    .getDao().forSelect(resultType);
             
             typeDao.distinct(true).from(resultType);
             
@@ -114,7 +114,7 @@ public class SearchOld implements Action<App, SearchResults> {
         return app.getSearchContext(resultType).getSearchResults(dao);
     }
     
-    public void searchOfficersdata(BuilderForSelect<Officersdata> dao, String query) {
+    public void searchOfficersdata(Select<Officersdata> dao, String query) {
         dao.search(Officersdata.class, query, 
                 Officersdata_.courseonentry.getName())
         .join(Officersdata.class, Officersdata_.commissiontype.getName(), Commissiontype.class)
@@ -125,7 +125,7 @@ public class SearchOld implements Action<App, SearchResults> {
                 Speciality_.abbreviation.getName(), Speciality_.speciality.getName());
     }
     
-    public void searchAirmansdata(BuilderForSelect<Airmansdata> dao, String query) {
+    public void searchAirmansdata(Select<Airmansdata> dao, String query) {
         dao.join(Airmansdata.class, Airmansdata_.grade.getName(), Grade.class)
         .search(Grade.class, query, Grade_.grade.getName())
         .join(Airmansdata.class, Airmansdata_.trade.getName(), Trade.class)
@@ -133,7 +133,7 @@ public class SearchOld implements Action<App, SearchResults> {
                 Trade_.abbreviation.getName(), Trade_.trade.getName());
     }
 
-    public <T> void searchPersonneldata(BuilderForSelect<T> dao, Class<T> fromType, String joinColumn, String query) {
+    public <T> void searchPersonneldata(Select<T> dao, Class<T> fromType, String joinColumn, String query) {
         dao.join(fromType, joinColumn, Personneldata.class)
         .search(Personneldata.class, query,        
                 Personneldata_.firstname.getName(), Personneldata_.localgovernmentarea.getName(),

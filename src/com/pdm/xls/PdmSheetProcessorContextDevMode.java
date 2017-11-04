@@ -17,15 +17,12 @@
 package com.pdm.xls;
 
 import com.bc.appbase.App;
+import com.bc.appbase.ui.builder.MatchEntries;
 import com.bc.appbase.xls.MatchExcelToDatabaseColumnsPrompt;
 import com.bc.appbase.xls.impl.TextCellSpliter;
-import java.awt.Container;
-import java.util.Arrays;
+import com.pdm.ui.builder.PdmMatchEntries;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import java.util.function.Function;
 import javax.swing.JCheckBox;
 import jxl.Cell;
@@ -41,22 +38,8 @@ public class PdmSheetProcessorContextDevMode extends PdmSheetProcessorContext{
 
     @Override
     public MatchExcelToDatabaseColumnsPrompt getMatchExcelToDatabaseColumnsPrompt() {
+        this.getApp().registerDefault(MatchEntries.class, () -> new PdmMatchEntries());
         return new PdmMatchExcelToDatabaseColumnsPrompt() {
-            @Override
-            public Map getSelectionsFromUI(App app, Container ui, Set excelCols, String noSelectionName) {
-                final Map selections = new HashMap();
-                selections.put("NAF Numb.", "servicenumber");
-                selections.put("Phone", "mobilephonenumber1");
-                selections.put("Rank", "rank");
-                selections.put("State", "stateoforigin");
-                selections.put("Full Name", Arrays.asList("surname", "firstname", "middlename"));
-                selections.put("Trade Class", "grade");
-                selections.put("Cses Attended", "coursetitle");        
-                selections.put("Gender", "gender");        
-                selections.put("Unit", "unit");    
-                selections.put("AFS", "trade");  
-                return selections;
-            }
             @Override
             public Function<Cell, List<Cell>> getSpliter(int excelColIndex, 
                     Object key, Object val, JCheckBox checkBox, Function<Cell, List<Cell>> outputIfNone) {

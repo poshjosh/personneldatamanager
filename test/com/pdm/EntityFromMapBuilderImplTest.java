@@ -71,7 +71,7 @@ System.out.println("Built map:\n"+app.getJsonFormat().toJSONString(map)+". @"+th
         
         app.getOrException(EntityFromMapBuilder.class)
                 .resultBuffer(resultBuffer)
-                .formatter(new EntityFromMapBuilderDataFormatter(app, app.getJpaContext(), app.getUIContext()))
+                .formatter(new EntityFromMapBuilderDataFormatter(app, app.getActivePersistenceUnitContext(), app.getUIContext()))
                 .source(map)
                 .target(entity.getClass())
                 .build();

@@ -19,12 +19,14 @@ package com.pdm;
 import com.bc.appbase.ObjectFactoryBase;
 import com.pdm.jpa.PdmSelectionContext;
 import com.bc.appcore.jpa.SelectionContext;
-import com.bc.appbase.jpa.EntityStructureFactory;
+import com.bc.appcore.jpa.EntityStructureFactory;
+import com.bc.appbase.ui.builder.MatchEntries;
 import com.bc.appbase.xls.SheetProcessorContext;
 import com.bc.appcore.ObjectFactory;
 import com.bc.appcore.User;
-import com.pdm.jpa.PdmEntityStructureFactory;
+import com.pdm.jpa.PdmEntityStructureFactoryImpl;
 import com.pdm.pu.entities.Appointment;
+import com.pdm.ui.builder.PdmMatchEntries;
 import com.pdm.xls.PdmSheetProcessorContext;
 
 /**
@@ -43,13 +45,17 @@ public class PdmObjectFactory extends ObjectFactoryBase {
             
             output = new PdmObjectFactory(this.getApp());
             
+        }else if(type.equals(MatchEntries.class)){
+            
+            output = new PdmMatchEntries();
+            
         }else if(type.equals(User.class)){
             
-            output = new PdmUserImpl(getApp().getJpaContext().getDao(Appointment.class).find(Appointment.class, 1));
+            output = new PdmUserImpl(getApp().getActivePersistenceUnitContext().getDao().find(Appointment.class, 1));
             
         }else if(type.equals(EntityStructureFactory.class)){
             
-            output = new PdmEntityStructureFactory(this.getApp());
+            output = new PdmEntityStructureFactoryImpl(this.getApp());
 
         }else if(type.equals(SelectionContext.class)){
             

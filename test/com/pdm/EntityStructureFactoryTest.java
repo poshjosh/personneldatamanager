@@ -16,7 +16,7 @@
 
 package com.pdm;
 
-import com.bc.appbase.jpa.EntityStructureFactoryImpl;
+import com.bc.appcore.jpa.EntityStructureFactoryImpl;
 import com.bc.util.JsonFormat;
 import java.util.ArrayList;
 import java.util.Arrays;

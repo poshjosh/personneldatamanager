@@ -16,8 +16,8 @@
 
 package com.pdm.jpa.predicates;
 
-import com.bc.jpa.JpaContext;
-import com.bc.jpa.JpaMetaData;
+import com.bc.jpa.context.JpaContext;
+import com.bc.jpa.metadata.JpaMetaData;
 import java.sql.ResultSetMetaData;
 import java.util.Map;
 import java.util.function.Predicate;

@@ -40,6 +40,8 @@ import com.pdm.pu.entities.Unit_;
 import com.pdm.pu.entities.Unittype;
 import com.pdm.pu.entities.Unittype_;
 import com.pdm.PdmApp;
+import com.pdm.pu.entities.Course;
+import com.pdm.pu.entities.Course_;
 import com.pdm.pu.entities.Localgovernmentarea;
 import com.pdm.pu.entities.Localgovernmentarea_;
 import java.util.ArrayList;
@@ -99,6 +101,8 @@ public class PdmSelectionContext extends AbstractSelectionContext {
             columnName = Appointmenttype_.abbreviation.getName();
         }else if(entityType == Commissiontype.class) {
             columnName = Commissiontype_.abbreviation.getName();
+        }else if(entityType == Course.class) {
+            columnName = Course_.coursetitle.getName();
         }else if(entityType == Gender.class) {
             columnName = Gender_.abbreviation.getName();
         }else if(entityType == Grade.class) {

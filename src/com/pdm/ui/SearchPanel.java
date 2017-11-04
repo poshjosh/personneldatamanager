@@ -80,9 +80,9 @@ public class SearchPanel extends javax.swing.JPanel {
                     final MainFrame mainFrame = uiContext.getMainFrame();
                     final SearchResultsPanel resultsPanel = mainFrame.getSearchResultsPanel();
                     final SearchContext searchContext = app.getSearchContext(selectedEntityType);
-                    final SearchResults searchResults = searchContext.getSearchResults();
+                    final SearchResults searchResults = searchContext.searchAll();
                     
-                    resultsPanel.loadSearchResultsUI(uiContext, searchContext, searchResults, mainFrame.getName(), 0, 1, true);
+                    resultsPanel.load(searchContext, searchResults, mainFrame.getName(), 0, 1, true);
                 }
                 
                 app.getAttributes().put(ParamNames.ENTITY_TYPE, selectedEntityType);

@@ -25,7 +25,6 @@ import com.bc.appbase.ui.SearchResultsPanel;
 import com.bc.appbase.ui.UIContext;
 import com.bc.appbase.ui.actions.ParamNames;
 import com.bc.appcore.html.HtmlBuilder;
-import com.bc.appcore.jpa.model.ResultModel;
 import com.bc.appcore.parameter.ParametersBuilder;
 import com.pdm.jpa.PdmResultModel;
 import com.pdm.parameter.SearchParametersBuilder;
@@ -35,24 +34,18 @@ import com.pdm.ui.PdmMainFrame;
 import com.pdm.ui.PdmUIContext;
 import com.pdm.ui.PdmUIContextImpl;
 import com.pdm.ui.SearchPanel;
-import java.text.DateFormat;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
 import java.util.Set;
-import javax.persistence.EntityManager;
 import javax.swing.ImageIcon;
 import com.bc.appcore.ObjectFactory;
-import com.bc.appcore.predicates.AcceptAll;
 import com.pdm.jpa.EntityInsertOrderComparatorImpl;
 import com.pdm.pu.entities.Appointment;
 import com.pdm.ui.actions.PdmActionCommands;
 import java.util.Comparator;
-import java.util.function.Predicate;
 import javax.swing.JFrame;
+import com.bc.appcore.jpa.model.EntityResultModel;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Mar 25, 2017 8:54:05 AM
@@ -66,11 +59,6 @@ public class PdmAppImpl extends AbstractApp implements PdmApp {
     @Override
     public ClassLoader getClassLoader() {
         return Thread.currentThread().getContextClassLoader();
-    }
-    
-    @Override
-    public EntityManager getEntityManager(Class resultType) {
-        return this.getJpaContext().getEntityManager(resultType);
     }
     
     @Override
@@ -110,7 +98,7 @@ public class PdmAppImpl extends AbstractApp implements PdmApp {
     
     @Override
     protected URL getIconURL() {
-        return this.getClass().getResource("naflogo.jpg");
+        return com.pdm.resources.R.class.getResource("naflogo.jpg");
     }
     
     @Override
@@ -124,35 +112,23 @@ public class PdmAppImpl extends AbstractApp implements PdmApp {
     }
 
     @Override
-    public Predicate<String> getPersistenceUnitNameTest() {
-        return new AcceptAll();
+    public Class getDefaultEntityType() {
+        return (Class)this.getAttributes().getOrDefault(ParamNames.ENTITY_TYPE, Officersdata.class);
     }
 
     @Override
-    public <T> ResultModel<T> getResultModel(Class<T> entityType, ResultModel<T> outputIfNone) {
-        
-        entityType = this.getEntityType(entityType);
-        
-        final String [] entityColumnNames = this.getColumnnames(entityType);
-        final String serialColumnName = this.getConfig().getString(ConfigNames.COLUMNNAMES_SERIAL);
-        final int serialColumnIndex = serialColumnName == null ? -1 : 0;
-        final List<String> resultColumnNames = new ArrayList(entityColumnNames.length + 1);
-        if(serialColumnName != null && !serialColumnName.trim().isEmpty()) {
-            resultColumnNames.add(serialColumnName);
-        }
-        resultColumnNames.addAll(Arrays.asList(entityColumnNames));
-        return new PdmResultModel(this, entityType, resultColumnNames, serialColumnIndex);
+    public String getSerialColumnName() {
+        return this.getConfig().getString(ConfigNames.COLUMNNAMES_SERIAL);
     }
-    
-    public Class getEntityType(Class entityType) {
+
+    @Override
+    public EntityResultModel createResultModel(Class entityType, String[] columnNames) {
+        
         if(entityType == null) {
-            entityType = (Class)this.getAttributes().get(ParamNames.ENTITY_TYPE);
+            entityType = this.getDefaultEntityType();
         }
-        Objects.requireNonNull(entityType);
-        if(!this.getSupportedEntityTypes().contains(entityType)) {
-            throw new IllegalArgumentException(String.valueOf(entityType));
-        }
-        return entityType;
+        
+        return new PdmResultModel(this, entityType, Arrays.asList(columnNames));
     }
     
     @Override
@@ -160,17 +136,6 @@ public class PdmAppImpl extends AbstractApp implements PdmApp {
         return new HashSet(Arrays.asList(Officersdata.class, Airmansdata.class));
     }
     
-    public String[] getColumnnames(Class entityType) {
-        final String key = "columnNames."+entityType.getName();
-        String [] columnNames = this.getConfig().getArray(key, (String[])null);
-        if(columnNames == null) {
-            columnNames = this.getConfig().getArray("columnNames."+entityType.getSimpleName(), columnNames);
-        }
-        Objects.requireNonNull(columnNames);
-        return columnNames;
-    }
-    
-
     @Override
     public <T> ParametersBuilder<T> getParametersBuilder(T source, String actionCommand) {
         
@@ -195,12 +160,12 @@ public class PdmAppImpl extends AbstractApp implements PdmApp {
     }
 
     @Override
-    public DateFormat getDateTimeFormat() {
-        return new com.pdm.util.DateTimeFormat(this);
+    public String getDateTimePattern() {
+        return this.getConfig().getString(ConfigNames.DATETIME_PATTERN, "dd-MMM-yy HH:mm");
     }
 
     @Override
-    public DateFormat getDateFormat() {
-        return new com.pdm.util.DateFormat(this);
+    public String getDatePattern() {
+        return this.getConfig().getString(ConfigNames.DATE_PATTERN, "dd-MMM-yy");
     }
 }

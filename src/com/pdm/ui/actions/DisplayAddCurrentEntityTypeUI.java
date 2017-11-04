@@ -27,7 +27,7 @@ import com.pdm.pu.entities.Airmansdata;
 import com.pdm.pu.entities.Officersdata;
 import java.awt.Container;
 import java.util.Map;
-import com.bc.appbase.ui.builder.FormEntryWithThreeColumnsComponentModel;
+import com.bc.appbase.ui.components.FormEntryWithThreeColumnsComponentModel;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Mar 25, 2017 9:45:59 PM
@@ -43,7 +43,7 @@ public class DisplayAddCurrentEntityTypeUI implements Action<App, Container> {
 
         final Container ui = app.getOrException(UIBuilderFromEntity.class)
                 .sourceType(entityType)
-                .entryUIProvider(app.getOrException(FormEntryWithThreeColumnsComponentModel.class))
+                .componentModel(app.getOrException(FormEntryWithThreeColumnsComponentModel.class))
                 .build();
         
         final UIDisplayHandler displayHandler = app.getUIContext().getDisplayHandler();

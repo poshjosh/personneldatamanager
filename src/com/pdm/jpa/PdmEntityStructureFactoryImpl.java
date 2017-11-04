@@ -17,7 +17,7 @@
 package com.pdm.jpa;
 
 import com.bc.appbase.App;
-import com.bc.appbase.jpa.EntityStructureFactoryImpl;
+import com.bc.appcore.jpa.EntityStructureFactoryImpl;
 import com.pdm.pu.entities.Courseattended;
 import com.pdm.pu.entities.Officersdata_;
 import com.pdm.pu.entities.Personneldata_;
@@ -27,9 +27,9 @@ import java.util.Map;
 /**
  * @author Chinomso Bassey Ikwuagwu on May 23, 2017 2:54:42 PM
  */
-public class PdmEntityStructureFactory extends EntityStructureFactoryImpl {
+public class PdmEntityStructureFactoryImpl extends EntityStructureFactoryImpl {
 
-    public PdmEntityStructureFactory(App app) {
+    public PdmEntityStructureFactoryImpl(App app) {
         super(app);
     }
 

@@ -16,14 +16,12 @@
 
 package com.pdm;
 
-import com.bc.jpa.JpaContext;
-import com.bc.jpa.JpaContextImpl;
-import com.bc.jpa.JpaMetaData;
+import com.bc.jpa.context.JpaContext;
+import com.bc.jpa.context.JpaContextImpl;
+import com.bc.jpa.metadata.JpaMetaData;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
@@ -67,6 +65,6 @@ System.out.println("Referencing types of "+type.getSimpleName() + ":\t" + refing
     
     public Set<Class> getEntityClasses() {
         final JpaMetaData metaData = this.jpaContext.getMetaData();
-        return metaData.getEntityClasses(new HashSet(Arrays.asList(metaData.getPersistenceUnitNames())));
+        return metaData.getEntityClasses(metaData.getPersistenceUnitNames());
     }
 }

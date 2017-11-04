@@ -17,7 +17,8 @@
 package com.pdm.ui.actions;
 
 import com.bc.appbase.App;
-import com.bc.appbase.ui.ResultsFrame;
+import com.bc.appbase.ui.SearchResultsFrame;
+import com.bc.appbase.ui.SearchResultsPanel;
 import com.bc.appbase.ui.UIContext;
 import com.bc.appbase.ui.actions.ParamNames;
 import com.bc.appcore.actions.Action;
@@ -26,15 +27,12 @@ import com.bc.appcore.jpa.SearchContext;
 import com.bc.appcore.parameter.ParameterException;
 import com.bc.jpa.search.SearchResults;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Mar 31, 2017 11:57:53 PM
  */
 public class SearchAndDisplayResults implements Action<App, Boolean> {
     
-    private static final AtomicInteger UID = new AtomicInteger();
-
     @Override
     public Boolean execute(App app, Map<String, Object> params) 
             throws ParameterException, TaskExecutionException {
@@ -45,19 +43,19 @@ public class SearchAndDisplayResults implements Action<App, Boolean> {
         
         final SearchContext searchContext = app.getSearchContext(resultType);
         
-        final ResultsFrame frame = new ResultsFrame();
+        final SearchResultsFrame frame = new SearchResultsFrame();
         
         final UIContext uiContext = app.getUIContext();
         
-        uiContext.positionHalfScreenRight(frame);
+        frame.init(uiContext, "", false);
         
-        frame.pack();
+        frame.loadSearchResults(
+                searchContext, searchResults, app.getRandomId(), true);
         
-        final String ID = Long.toHexString(System.currentTimeMillis()) + '_' + UID.getAndIncrement();
+        final SearchResultsPanel panel = frame.getSearchResultsPanel();
         
-        frame.getSearchResultsPanel().loadSearchResultsUI(
-                uiContext, searchContext, searchResults, ID, 0, 1, true);
-        
+        panel.getSearchResultsTable().addMouseListener(app.getUIContext().getMouseListener(panel));
+
         frame.setVisible(true);
         
         return Boolean.TRUE;

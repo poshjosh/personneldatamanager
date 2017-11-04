@@ -20,7 +20,6 @@ import com.bc.appbase.App;
 import com.bc.appbase.ui.actions.DisplayURL;
 import com.bc.appcore.exceptions.TaskExecutionException;
 import com.bc.appcore.parameter.ParameterException;
-import com.pdm.PdmApp;
 import java.util.HashMap;
 import java.util.Map;
 import static com.bc.appbase.ui.actions.ParamNames.CONTENT_TYPE;
@@ -36,7 +35,7 @@ public class About extends DisplayURL {
         
         params = new HashMap();
         params.put(CONTENT_TYPE, "text/html");
-        params.put(java.net.URL.class.getName(), PdmApp.class.getResource("about.html"));
+        params.put(java.net.URL.class.getName(), com.pdm.resources.R.class.getResource("about.html"));
         
         return super.execute(app, params);
     }

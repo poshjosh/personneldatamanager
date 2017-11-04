@@ -14,23 +14,28 @@
  * limitations under the License.
  */
 
-package com.pdm.util;
-
-import com.pdm.ConfigNames;
-import java.text.SimpleDateFormat;
-import com.bc.appbase.App;
+package com.pdm.resources;
 
 /**
- * @author Chinomso Bassey Ikwuagwu on Mar 4, 2017 11:35:33 PM
+ * @author Chinomso Bassey Ikwuagwu on Sep 17, 2017 6:05:00 PM
  */
-public class DateFormat extends SimpleDateFormat {
-
-    private final App app;
-
-    public DateFormat(App app) {
-        this.app = app;
-        DateFormat.this.setTimeZone(app.getTimeZone());
-        DateFormat.this.applyLocalizedPattern(
-                app.getConfig().getString(ConfigNames.DATE_PATTERN, "dd-MMM-yy"));
-    }
+public interface R {
+    
 }
+/**
+ * 
+    public static final Path ROOT_PATH;
+    
+    public static final URL ROOT_URL;
+    
+    static{
+        try{
+            final URL url = R.class.getResource("naflogo.jpg");
+            ROOT_PATH = Paths.get(url.toURI()).getParent();
+            ROOT_URL = ROOT_PATH.toUri().toURL();
+        }catch(URISyntaxException | MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+ * 
+ */

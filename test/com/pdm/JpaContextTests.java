@@ -16,9 +16,8 @@
 
 package com.pdm;
 
-import com.bc.jpa.JpaContext;
-import com.bc.jpa.JpaContextImpl;
-import com.bc.jpa.dao.BuilderForSelect;
+import com.bc.jpa.context.JpaContext;
+import com.bc.jpa.context.JpaContextImpl;
 import com.pdm.pu.entities.Localgovernmentarea;
 import com.pdm.pu.entities.Personneldata;
 import com.pdm.pu.entities.Stateoforigin;
@@ -29,6 +28,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import org.junit.Test;
+import com.bc.jpa.dao.Select;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Jun 5, 2017 12:08:19 PM
@@ -50,7 +50,7 @@ public class JpaContextTests {
     @Test
     public void repopulateLgas() {
         
-        try(BuilderForSelect<Localgovernmentarea> dao = this.jpa.getBuilderForSelect(Localgovernmentarea.class)) {
+        try(Select<Localgovernmentarea> dao = this.jpa.getDaoForSelect(Localgovernmentarea.class)) {
             
             final List<Localgovernmentarea> resultList = dao.createQuery().getResultList();
           

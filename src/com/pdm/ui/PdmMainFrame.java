@@ -20,7 +20,6 @@ import com.bc.appbase.ui.MainFrame;
 import java.awt.Font;
 import javax.swing.JPanel;
 import com.bc.appbase.App;
-import com.bc.appbase.ui.SearchResultsPanel;
 import com.pdm.PdmApp;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -55,10 +54,6 @@ public class PdmMainFrame extends MainFrame {
         
         this.importExcelDataMenuItem.setActionCommand(PdmActionCommands.IMPORT_SHEET_DATA);
         app.getUIContext().addActionListeners(this, this.importExcelDataMenuItem);
-        
-        final SearchResultsPanel resultsPanel = this.getSearchResultsPanel();
-        resultsPanel.getAddButton().setActionCommand(PdmActionCommands.DISPLAY_ADD_CURRENT_ENTITY_TYPE_UI);
-        app.getUIContext().addActionListeners(resultsPanel, resultsPanel.getAddButton());
     }
     
     @Override

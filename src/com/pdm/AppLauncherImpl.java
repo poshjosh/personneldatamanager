@@ -19,8 +19,6 @@ package com.pdm;
 import com.bc.appbase.AppLauncher;
 import com.bc.appbase.ui.actions.ParamNames;
 import com.bc.appcore.AppContext;
-import com.bc.jpa.JpaContext;
-import com.pdm.pu.entities.Unit;
 import com.bc.appcore.jpa.JpaContextManager;
 import com.bc.appcore.jpa.JpaContextManagerImpl;
 import com.pdm.pu.entities.Officersdata;
@@ -52,12 +50,7 @@ public class AppLauncherImpl extends AppLauncher<PdmApp> {
     
     @Override
     public JpaContextManager getJpaContextManager() {
-        return new JpaContextManagerImpl(this.getMasterPersistenceUnitTest()) {
-            @Override
-            public void validateJpaContext(JpaContext jpaContext) {
-                jpaContext.getBuilderForSelect(Unit.class).from(Unit.class).getResultsAndClose(0, 10);
-            }
-        };
+        return new JpaContextManagerImpl();
     }
 
     @Override

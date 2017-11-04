@@ -22,8 +22,6 @@ import com.bc.appcore.actions.Action;
 import com.bc.appcore.exceptions.TaskExecutionException;
 import com.bc.appcore.jpa.SearchContext;
 import com.bc.appcore.parameter.ParameterException;
-import com.bc.jpa.dao.BuilderForSelect;
-import com.bc.jpa.dao.BuilderForSelectImpl;
 import com.bc.jpa.dao.SelectDao;
 import com.bc.jpa.search.SearchResults;
 import com.pdm.pu.entities.Airmansdata;
@@ -32,19 +30,12 @@ import com.pdm.pu.entities.Officersdata;
 import com.pdm.pu.entities.Officersdata_;
 import com.pdm.pu.entities.Personneldata;
 import com.pdm.pu.entities.Personneldata_;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.From;
-import javax.persistence.criteria.Join;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import com.bc.jpa.dao.Select;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Apr 1, 2017 2:38:14 PM
@@ -99,7 +90,7 @@ public class Search implements Action<App, SearchResults> {
     public SelectDao doExecute(App app, Map<String, Object> params) 
             throws ParameterException, TaskExecutionException {
         
-        final Class resultType = this.getEntityType(app, params);
+        final Class<?> resultType = this.getEntityType(app, params);
         
         final String textToFind = this.getTextToFind(params, null);
         
@@ -107,16 +98,14 @@ public class Search implements Action<App, SearchResults> {
             logger.log(Level.FINE, "Result type: {0}, query: {1}", new Object[]{resultType, textToFind});
         }
         
-        final BuilderForSelect dao = app.getJpaContext().getBuilderForSelect(resultType);
+        final Select dao = app.getActivePersistenceUnitContext()
+                .getDao().forSelect(resultType).from(resultType);
         
         dao.distinct(true);
         
         final boolean hasQuery = textToFind != null && !textToFind.isEmpty();
         
         dao.from(resultType); 
-        
-        final String idColumnName = app.getJpaContext().getMetaData().getIdColumnName(resultType);
-        dao.descOrder(idColumnName);
         
         if(hasQuery) {
 
@@ -145,65 +134,35 @@ public class Search implements Action<App, SearchResults> {
             }
         }
         
+        dao.orderBy(this.getOrders(app, resultType));
+        
         return dao;
     }
     
-    public SelectDao doExecuteOld(App app, Map<String, Object> params) 
-            throws ParameterException, TaskExecutionException {
-        
-        final Class resultType = this.getEntityType(app, params);
-        
-        final String query = this.getQuery(params, null);
-        
-        if(logger.isLoggable(Level.FINE)) {
-            logger.log(Level.FINE, "Result type: {0}, query: {1}", new Object[]{resultType, null});
-        }
-        
-        final boolean hasQuery = query != null && !query.isEmpty();
-        
-        Objects.requireNonNull(resultType);
-        
-        final EntityManager em = app.getEntityManager(resultType);
-
-        final BuilderForSelect dao = new BuilderForSelectImpl(em, resultType);
-        
-        final CriteriaBuilder cb = dao.getCriteriaBuilder();
-        
-        final CriteriaQuery cq = dao.getCriteriaQuery();
-        
-        cq.distinct(true);
-        
-        final List<Predicate> likes = !hasQuery ? null : new ArrayList();
-        
-        final Root root = cq.from(resultType); 
-        
-        final String joinColumn;
-        
-        if(resultType == Officersdata.class) {
-            
-            this.searchOfficersdata(cb, root, likes, query);
-            joinColumn = Officersdata_.personneldata.getName();
-            
-        }else if (resultType == Airmansdata.class){
-
-            this.searchAirmansdata(cb, root, likes, query);
-            joinColumn = Airmansdata_.personneldata.getName();
-            
-        }else{
-            
-            throw new UnsupportedOperationException("Unexpected result type: "+resultType);
-        }
-             
-        final Join<?, Personneldata> joinPersdata = root.join(joinColumn);
-        
-        this.searchPersonneldata(cb, joinPersdata, likes, query);
-        
-        this.where(cb, cq, likes);
-
-//        this.orderBy(app, cb, resultType, cq, root);
-        
-        return dao;
+    public String getQuery(Map<String, Object> params, String outputIfNone) {
+        final String textToFind = this.getTextToFind(params, null);
+        return textToFind == null ? outputIfNone : '%' + textToFind + '%';
     }
+    
+    public String getTextToFind(Map<String, Object> params, String outputIfNone) {
+        final String textToFind = (String)params.get("query");
+        return textToFind;
+    }
+    
+    public Map getOrders(App app, Class resultType) {
+        final Map orders = new LinkedHashMap();
+        if (Officersdata.class.equals(resultType) || Airmansdata.class.equals(resultType)) {
+            orders.put(Personneldata_.rank.getName(), "DESC");
+            orders.put(Personneldata_.servicenumber.getName(), "DESC");
+        } else {
+            final String idColumnName = app.getActivePersistenceUnitContext().getMetaData().getIdColumnName(resultType);
+            orders.put(idColumnName, "DESC");
+        }
+        return orders;
+    }
+}
+/**
+ * 
     
     public void searchOfficersdata(CriteriaBuilder cb, From<?, Officersdata> from, List<Predicate> likes, String toFind) {
         if(likes != null && from != null) {
@@ -256,16 +215,6 @@ public class Search implements Action<App, SearchResults> {
         }
     }
     
-    public String getQuery(Map<String, Object> params, String outputIfNone) {
-        final String textToFind = this.getTextToFind(params, null);
-        return textToFind == null ? outputIfNone : '%' + textToFind + '%';
-    }
-    
-    public String getTextToFind(Map<String, Object> params, String outputIfNone) {
-        final String textToFind = (String)params.get("query");
-        return textToFind;
-    }
-    
     public void where(CriteriaBuilder cb, CriteriaQuery cq, List<Predicate> likes) {
         
         if(likes == null || likes.isEmpty()) {
@@ -288,10 +237,7 @@ public class Search implements Action<App, SearchResults> {
         
         cq.orderBy(cb.desc(root.get(idColumnName))); 
     }
-}
-/**
- * 
- * 
+  
             dao = new SelectDaoBuilderImpl(){
                 @Override
                 public Join getJoin(Class type, From from, Class colType, Join outputIfNone) {

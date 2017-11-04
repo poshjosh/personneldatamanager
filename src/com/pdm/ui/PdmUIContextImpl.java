@@ -18,12 +18,10 @@ package com.pdm.ui;
 
 import com.bc.appbase.App;
 import com.bc.appbase.ui.SearchResultsPanel;
-import com.bc.appbase.ui.SearchResultsPanelMouseRightClickListener;
 import java.awt.Container;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
-import com.pdm.ui.actions.PdmActionCommands;
 import javax.swing.JFrame;
 
 /**
@@ -45,15 +43,8 @@ public class PdmUIContextImpl extends com.bc.appbase.ui.UIContextBase implements
         
         if(container instanceof SearchResultsPanel) {
             
-            final SearchResultsPanelMouseRightClickListener listener = 
-                    new SearchResultsPanelMouseRightClickListener(this.getApp(), (SearchResultsPanel)container);
-            
-            listener.addMenuItem("Add Row Above", PdmActionCommands.DISPLAY_ADD_CURRENT_ENTITY_TYPE_UI);
-            listener.addMenuItem("Edit Row", PdmActionCommands.DISPLAY_EDIT_SELECTED_ENTITIES_UIS);
-            listener.addMenuItem("View", PdmActionCommands.DISPLAY_MULTIPLE_RECORDS);
-            listener.addMenuItem("Add Posting/Unit/Appointment", PdmActionCommands.DISPLAY_ADD_PERSONNELPOSTING_UI);
-            listener.addMenuItem("Add Course Attended", PdmActionCommands.DISPLAY_ADD_COURSEATTENDED_UI);
-            listener.addMenuItem("Delete", PdmActionCommands.DELETE_SELECTED_RECORDS);
+            final MouseListener listener = 
+                    new SearchResultsRightClickListener(this.getApp(), (SearchResultsPanel)container);
             
             return listener;
             
