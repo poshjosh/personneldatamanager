@@ -1,0 +1,741 @@
+run:
+May 21, 2017 12:23:41 AM com.bc.config.SimpleConfigService <init>
+INFO:   Defaults: [META-INF/properties/app.properties]
+Properties: [C:\Users\Josh\bcpdm\configs\app.properties]
+May 21, 2017 12:23:41 AM com.bc.config.AbstractConfigService load
+INFO: From: META-INF/properties/app.properties loaded properties:
+[application.email.password, datePattern, javax.swing.JTable.font, persistenceFile, columnLabel.Personneldata.servicenumber, installed, columnLabel.serial, java.util.logging.config.file, columnLabel.Personneldata.localgovernmentarea, lookAndFeel, application.email.port, columnNames.com.pdm.pu.entities.Airmansdata, dateTimePattern, application.email.host, columnNames.serial, columnNames.com.pdm.pu.entities.Personneldata, columnNames.com.pdm.pu.entities.Officersdata, columnLabel.Officersdata.dateofcommission, columnLabel.Airmansdata.dateofenlistement, searchresultsPagesize, columnLabel.Personneldata.statoforigin, .font, application.email.address, searchresultsUsecache, columnLabel.Personneldata.dateofbirth]
+May 21, 2017 12:23:41 AM com.bc.config.AbstractConfigService load
+INFO: From: C:\Users\Josh\bcpdm\configs\app.properties loaded properties:
+[application.email.password, datePattern, javax.swing.JTable.font, persistenceFile, columnLabel.Personneldata.servicenumber, installed, columnLabel.serial, java.util.logging.config.file, columnLabel.Personneldata.localgovernmentarea, lookAndFeel, application.email.port, columnNames.com.pdm.pu.entities.Airmansdata, dateTimePattern, application.email.host, columnNames.serial, columnNames.com.pdm.pu.entities.Personneldata, columnNames.com.pdm.pu.entities.Officersdata, columnLabel.Officersdata.dateofcommission, columnLabel.Airmansdata.dateofenlistement, searchresultsPagesize, columnLabel.Personneldata.statoforigin, .font, application.email.address, searchresultsUsecache, columnLabel.Personneldata.dateofbirth]
+[EL Info]: 2017-05-21 00:23:43.211--ServerSession(21453167)--EclipseLink, version: Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd
+[EL Warning]: metadata: 2017-05-21 00:23:43.53--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [personneldata] for the entity class [class com.pdm.pu.entities.Courseattended] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.53--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [course] for the entity class [class com.pdm.pu.entities.Courseattended] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.53--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [trade] for the entity class [class com.pdm.pu.entities.Airmansdata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.531--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [grade] for the entity class [class com.pdm.pu.entities.Airmansdata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.531--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [personneldata] for the entity class [class com.pdm.pu.entities.Airmansdata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.531--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [unittype] for the entity class [class com.pdm.pu.entities.Unit] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.536--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [parentunit] for the entity class [class com.pdm.pu.entities.Unit] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.537--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [parentappointment] for the entity class [class com.pdm.pu.entities.Appointment] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.538--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [appointmenttype] for the entity class [class com.pdm.pu.entities.Appointment] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.538--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [unit] for the entity class [class com.pdm.pu.entities.Personnelposting] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.538--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [personneldata] for the entity class [class com.pdm.pu.entities.Personnelposting] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.538--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [appointment] for the entity class [class com.pdm.pu.entities.Personnelposting] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.539--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [stateoforigin] for the entity class [class com.pdm.pu.entities.Localgovernmentarea] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.539--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [localgovernmentarea] for the entity class [class com.pdm.pu.entities.Personneldata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.539--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [gender] for the entity class [class com.pdm.pu.entities.Personneldata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.54--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [rank] for the entity class [class com.pdm.pu.entities.Personneldata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.54--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [officersdata] for the entity class [class com.pdm.pu.entities.Personneldata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.54--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [airmansdata] for the entity class [class com.pdm.pu.entities.Personneldata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.54--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [qualification] for the entity class [class com.pdm.pu.entities.Course] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.541--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [speciality] for the entity class [class com.pdm.pu.entities.Officersdata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.541--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [personneldata] for the entity class [class com.pdm.pu.entities.Officersdata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-21 00:23:43.542--ServerSession(21453167)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [commissiontype] for the entity class [class com.pdm.pu.entities.Officersdata] since weaving was not enabled or did not occur.
+[EL Info]: connection: 2017-05-21 00:23:43.681--ServerSession(21453167)--file:/C:/Users/Josh/Documents/NetBeansProjects/personneldatamanager/build/classes/_personneldatamanagerPU_url=jdbc:mysql://localhost:3306/loosebox_pdm?zeroDateTimeBehavior=convertToNull_user=root login successful
+Processing row: 37. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=null
+- - - - - - - Added to cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=null
+- - - - - - - Added to cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 38. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 39. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 40. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 41. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 42. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 43. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 44. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 45. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 46. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 47. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 48. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 49. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 50. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 51. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 52. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 53. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 54. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 55. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 56. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 57. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 58. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 59. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 60. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 61. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 62. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 63. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 64. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 65. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 66. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 67. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 68. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 69. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 70. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 71. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 72. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 73. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 74. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 75. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 76. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 77. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 78. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 79. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 80. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+[EL Warning]: 2017-05-21 00:25:12.605--UnitOfWork(1254686)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+@[80:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Processing row: 81. @class com.pdm.xls.BuildEntitiesFromResult
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 82. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=null
+- - - - - - - Added to cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:24.097--UnitOfWork(6519165)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[82:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Processing row: 83. @class com.pdm.xls.BuildEntitiesFromResult
+Error Code: 1048
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Processing row: 84. @class com.pdm.xls.BuildEntitiesFromResult
+@[83:10] encountered exception: java.lang.NullPointerException
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 85. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 86. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 87. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 88. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 89. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 90. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 91. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+[EL Warning]: 2017-05-21 00:25:26.798--UnitOfWork(5742759)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+@[91:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Processing row: 92. @class com.pdm.xls.BuildEntitiesFromResult
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 93. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:27.335--UnitOfWork(19069481)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[93:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Processing row: 94. @class com.pdm.xls.BuildEntitiesFromResult
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+[EL Warning]: 2017-05-21 00:25:27.56--UnitOfWork(5834904)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+@[94:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Processing row: 95. @class com.pdm.xls.BuildEntitiesFromResult
+Error Code: 1048
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:27.629--UnitOfWork(32188707)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+@[95:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Processing row: 96. @class com.pdm.xls.BuildEntitiesFromResult
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 97. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:28.123--UnitOfWork(26666444)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[97:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Error Code: 1048
+Processing row: 98. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:28.178--UnitOfWork(7805715)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[98:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Error Code: 1048
+Processing row: 99. @class com.pdm.xls.BuildEntitiesFromResult
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:28.423--UnitOfWork(4406167)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[99:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Processing row: 100. @class com.pdm.xls.BuildEntitiesFromResult
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:28.481--UnitOfWork(424937)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+@[100:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Processing row: 101. @class com.pdm.xls.BuildEntitiesFromResult
+Error Code: 1048
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Processing row: 102. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 103. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+[EL Warning]: 2017-05-21 00:25:29.528--UnitOfWork(1098923)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[103:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Processing row: 104. @class com.pdm.xls.BuildEntitiesFromResult
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+[EL Warning]: 2017-05-21 00:25:29.742--UnitOfWork(33183730)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[104:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Error Code: 1048
+Processing row: 105. @class com.pdm.xls.BuildEntitiesFromResult
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+[EL Warning]: 2017-05-21 00:25:29.804--UnitOfWork(2822544)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[105:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Error Code: 1048
+Processing row: 106. @class com.pdm.xls.BuildEntitiesFromResult
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+[EL Warning]: 2017-05-21 00:25:30.034--UnitOfWork(25494531)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[106:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Error Code: 1048
+Processing row: 107. @class com.pdm.xls.BuildEntitiesFromResult
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:30.078--UnitOfWork(24418567)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[107:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Processing row: 108. @class com.pdm.xls.BuildEntitiesFromResult
+Error Code: 1048
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:30.148--UnitOfWork(33238289)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+@[108:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Processing row: 109. @class com.pdm.xls.BuildEntitiesFromResult
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Rankrank=com.pdm.pu.entities.Rank[ rankid=17 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:30.37--UnitOfWork(17011815)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[109:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Error Code: 1048
+Processing row: 110. @class com.pdm.xls.BuildEntitiesFromResult
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 111. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 112. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:31.151--UnitOfWork(16786986)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+@[112:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Processing row: 113. @class com.pdm.xls.BuildEntitiesFromResult
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:31.199--UnitOfWork(8161001)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+@[113:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Processing row: 114. @class com.pdm.xls.BuildEntitiesFromResult
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 115. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 116. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Processing row: 117. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 118. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 119. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Processing row: 120. @class com.pdm.xls.BuildEntitiesFromResult
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:33.375--UnitOfWork(15424059)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+@[120:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Processing row: 121. @class com.pdm.xls.BuildEntitiesFromResult
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+[EL Warning]: 2017-05-21 00:25:33.423--UnitOfWork(7167888)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+@[121:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Processing row: 122. @class com.pdm.xls.BuildEntitiesFromResult
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+[EL Warning]: 2017-05-21 00:25:33.491--UnitOfWork(1790588)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[122:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Error Code: 1048
+Processing row: 123. @class com.pdm.xls.BuildEntitiesFromResult
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:33.697--UnitOfWork(1020785)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[123:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Error Code: 1048
+Processing row: 124. @class com.pdm.xls.BuildEntitiesFromResult
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:33.738--UnitOfWork(5565368)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[124:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Error Code: 1048
+Processing row: 125. @class com.pdm.xls.BuildEntitiesFromResult
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+[EL Warning]: 2017-05-21 00:25:33.819--UnitOfWork(20644696)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[125:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+	bind => [6 parameters bound]
+Error Code: 1048
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Processing row: 126. @class com.pdm.xls.BuildEntitiesFromResult
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:34.01--UnitOfWork(27916730)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[126:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Error Code: 1048
+Processing row: 127. @class com.pdm.xls.BuildEntitiesFromResult
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gradegrade=null
+- - - - - - - Added to cache. class com.pdm.pu.entities.Gradegrade=com.pdm.pu.entities.Grade[ gradeid=7 ]
+[EL Warning]: 2017-05-21 00:25:48.926--UnitOfWork(6548558)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[127:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Error Code: 1048
+Processing row: 128. @class com.pdm.xls.BuildEntitiesFromResult
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:49.235--UnitOfWork(13049476)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[128:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Error Code: 1048
+Processing row: 129. @class com.pdm.xls.BuildEntitiesFromResult
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:49.276--UnitOfWork(24068166)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[129:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Processing row: 130. @class com.pdm.xls.BuildEntitiesFromResult
+Error Code: 1048
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+[EL Warning]: 2017-05-21 00:25:49.319--UnitOfWork(6781550)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+@[130:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+	bind => [6 parameters bound]
+Error Code: 1048
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Processing row: 131. @class com.pdm.xls.BuildEntitiesFromResult
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+[EL Warning]: 2017-05-21 00:25:49.548--UnitOfWork(30294164)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[131:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Error Code: 1048
+Processing row: 132. @class com.pdm.xls.BuildEntitiesFromResult
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+	bind => [6 parameters bound]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+[EL Warning]: 2017-05-21 00:25:49.592--UnitOfWork(1253372)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[132:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Error Code: 1048
+Processing row: 133. @class com.pdm.xls.BuildEntitiesFromResult
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+	bind => [6 parameters bound]
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+[EL Warning]: 2017-05-21 00:25:49.637--UnitOfWork(24330790)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[133:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Processing row: 134. @class com.pdm.xls.BuildEntitiesFromResult
+Error Code: 1048
+- - - - - - - Got from cache. class com.pdm.pu.entities.Gendergender=com.pdm.pu.entities.Gender[ genderid=1 ]
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+- - - - - - - Got from cache. class com.pdm.pu.entities.Unitunit=com.pdm.pu.entities.Unit[ unitid=70 ]
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+[EL Warning]: 2017-05-21 00:25:49.704--UnitOfWork(9837249)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+@[134:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+	bind => [6 parameters bound]
+Error Code: 1048
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+@[135:-] encountered exception: java.lang.ArrayIndexOutOfBoundsException: 1
+

@@ -1,0 +1,32 @@
+{
+  "grade":null,
+  "trade":null,
+  "dateofenlistment":null,
+  "personneldata":{
+    "rank":null,
+    "servicenumber":null,
+    "surname":null,
+    "middlename":null,
+    "dateofbirth":null,
+    "seniority":null,
+    "firstname":null,
+    "emailaddress":null,
+    "gender":null,
+    "courseattendedList":[{
+      "course":null
+    }],
+    "mobilephonenumber2":null,
+    "mobilephonenumber1":null,
+    "localgovernmentarea":{
+      "stateoforigin":{
+        "stateoforigin":null
+      },
+      "localgovernmentarea":null
+    },
+    "personnelpostingList":[{
+      "unit":null,
+      "appointment":null,
+      "datetakenonstrength":null
+    }]
+  }
+}

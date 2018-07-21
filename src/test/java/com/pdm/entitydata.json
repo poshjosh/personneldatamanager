@@ -1,0 +1,36 @@
+{
+  "course":"37",
+  "speciality":"com.pdm.pu.entities.Speciality[ specialityid=1 ]",
+  "commissiontype":"com.pdm.pu.entities.Commissiontype[ commissiontypeid=2 ]",
+  "dateofcommission":"Sat Sep 22 00:00:00 WAT 1990",
+  "personneldata":{
+    "rank":"com.pdm.pu.entities.Rank[ rankid=4 ]",
+    "seniority":"Sat Sep 19 00:00:00 WAT 2015",
+    "dateofbirth":"Mon Oct 03 00:00:00 WAT 1966",
+    "firstname":"Bello",
+    "servicenumber":"2197",
+    "middlename":"Ade",
+    "emailaddress":null,
+    "surname":"Nwosu",
+    "gender":"com.pdm.pu.entities.Gender[ genderid=2 ]",
+    "personnelpostingList":[{
+      "unit":null,
+      "appointment":"com.pdm.pu.entities.Appointment[ appointmentid=7 ]",
+      "datetakenonstrength":null
+    }],
+    "localgovernmentarea":null,
+    "courseattendedList":[{
+      "course":{
+        "location":null,
+        "description":null,
+        "startdate":null,
+        "enddate":null,
+        "coursetitle":null,
+        "qualification":null
+      }
+    }],
+    "mobilephonenumber1":null,
+    "mobilephonenumber2":null
+  }
+}
+

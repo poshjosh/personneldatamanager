@@ -1,0 +1,324 @@
+run:
+May 20, 2017 11:12:09 PM com.bc.config.SimpleConfigService <init>
+INFO:   Defaults: [META-INF/properties/app.properties]
+Properties: [C:\Users\Josh\bcpdm\configs\app.properties]
+May 20, 2017 11:12:09 PM com.bc.config.AbstractConfigService load
+INFO: From: META-INF/properties/app.properties loaded properties:
+[application.email.password, datePattern, javax.swing.JTable.font, persistenceFile, columnLabel.Personneldata.servicenumber, installed, columnLabel.serial, java.util.logging.config.file, columnLabel.Personneldata.localgovernmentarea, lookAndFeel, application.email.port, columnNames.com.pdm.pu.entities.Airmansdata, dateTimePattern, application.email.host, columnNames.serial, columnNames.com.pdm.pu.entities.Personneldata, columnNames.com.pdm.pu.entities.Officersdata, columnLabel.Officersdata.dateofcommission, columnLabel.Airmansdata.dateofenlistement, searchresultsPagesize, columnLabel.Personneldata.statoforigin, .font, application.email.address, searchresultsUsecache, columnLabel.Personneldata.dateofbirth]
+May 20, 2017 11:12:09 PM com.bc.config.AbstractConfigService load
+INFO: From: C:\Users\Josh\bcpdm\configs\app.properties loaded properties:
+[application.email.password, datePattern, javax.swing.JTable.font, persistenceFile, columnLabel.Personneldata.servicenumber, installed, columnLabel.serial, java.util.logging.config.file, columnLabel.Personneldata.localgovernmentarea, lookAndFeel, application.email.port, columnNames.com.pdm.pu.entities.Airmansdata, dateTimePattern, application.email.host, columnNames.serial, columnNames.com.pdm.pu.entities.Personneldata, columnNames.com.pdm.pu.entities.Officersdata, columnLabel.Officersdata.dateofcommission, columnLabel.Airmansdata.dateofenlistement, searchresultsPagesize, columnLabel.Personneldata.statoforigin, .font, application.email.address, searchresultsUsecache, columnLabel.Personneldata.dateofbirth]
+[EL Info]: 2017-05-20 23:12:11.252--ServerSession(11703446)--EclipseLink, version: Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd
+[EL Warning]: metadata: 2017-05-20 23:12:11.57--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [unittype] for the entity class [class com.pdm.pu.entities.Unit] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.571--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [parentunit] for the entity class [class com.pdm.pu.entities.Unit] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.573--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [localgovernmentarea] for the entity class [class com.pdm.pu.entities.Personneldata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.573--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [gender] for the entity class [class com.pdm.pu.entities.Personneldata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.573--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [rank] for the entity class [class com.pdm.pu.entities.Personneldata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.574--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [officersdata] for the entity class [class com.pdm.pu.entities.Personneldata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.574--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [airmansdata] for the entity class [class com.pdm.pu.entities.Personneldata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.574--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [speciality] for the entity class [class com.pdm.pu.entities.Officersdata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.574--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [personneldata] for the entity class [class com.pdm.pu.entities.Officersdata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.575--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [commissiontype] for the entity class [class com.pdm.pu.entities.Officersdata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.576--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [qualification] for the entity class [class com.pdm.pu.entities.Course] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.576--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [unit] for the entity class [class com.pdm.pu.entities.Personnelposting] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.576--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [personneldata] for the entity class [class com.pdm.pu.entities.Personnelposting] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.576--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [appointment] for the entity class [class com.pdm.pu.entities.Personnelposting] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.577--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [parentappointment] for the entity class [class com.pdm.pu.entities.Appointment] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.577--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [appointmenttype] for the entity class [class com.pdm.pu.entities.Appointment] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.578--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [trade] for the entity class [class com.pdm.pu.entities.Airmansdata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.578--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [grade] for the entity class [class com.pdm.pu.entities.Airmansdata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.578--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [personneldata] for the entity class [class com.pdm.pu.entities.Airmansdata] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.579--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [personneldata] for the entity class [class com.pdm.pu.entities.Courseattended] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.579--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [course] for the entity class [class com.pdm.pu.entities.Courseattended] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2017-05-20 23:12:11.579--ServerSession(11703446)--Reverting the lazy setting on the OneToOne or ManyToOne attribute [stateoforigin] for the entity class [class com.pdm.pu.entities.Localgovernmentarea] since weaving was not enabled or did not occur.
+[EL Info]: connection: 2017-05-20 23:12:11.74--ServerSession(11703446)--file:/C:/Users/Josh/Documents/NetBeansProjects/personneldatamanager/build/classes/_personneldatamanagerPU_url=jdbc:mysql://localhost:3306/loosebox_pdm?zeroDateTimeBehavior=convertToNull_user=root login successful
+Begin processing row:4. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[4:3 into parts: [BUSARI, SANYA, ISAAC]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[4:7 into parts: []. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[4:3 into parts: [BUSARI, SANYA, ISAAC]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[4:7 into parts: []. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 4. @class com.pdm.xls.BuildEntitiesFromResult
+[EL Warning]: 2017-05-20 23:13:12.935--UnitOfWork(30281171)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+@[4:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Begin processing row:5. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[5:3 into parts: [AWOYEMI, CHARLES, AKINWALE]. @class com.bc.appbase.xls.TextCellSpliter
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Split cell @[5:7 into parts: []. @class com.bc.appbase.xls.TextCellSpliter
+Error Code: 1048
+Split cell @[5:3 into parts: [AWOYEMI, CHARLES, AKINWALE]. @class com.bc.appbase.xls.TextCellSpliter
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+Split cell @[5:7 into parts: []. @class com.bc.appbase.xls.TextCellSpliter
+	bind => [6 parameters bound]
+Final processing row: 5. @class com.pdm.xls.BuildEntitiesFromResult
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+[EL Warning]: 2017-05-20 23:13:37.792--UnitOfWork(28369953)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+@[5:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Begin processing row:6. @class com.bc.appbase.xls.RowToArrayProcessor
+Error Code: 1048
+Split cell @[6:3 into parts: [ONYEKWELLE, MICHEAL, CHUKWUDI]. @class com.bc.appbase.xls.TextCellSpliter
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Split cell @[6:7 into parts: [Power Plant X3 - 87, Radar Tech AUC X1 - 00, MICOM Radio - 03, Radar Refresher Cse NCAT - 06, HND Stat - 03]. @class com.bc.appbase.xls.TextCellSpliter
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Split cell @[6:3 into parts: [ONYEKWELLE, MICHEAL, CHUKWUDI]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[6:7 into parts: [Power Plant X3 - 87, Radar Tech AUC X1 - 00, MICOM Radio - 03, Radar Refresher Cse NCAT - 06, HND Stat - 03]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 6. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:7. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[7:3 into parts: [ORUKOTAN, OLUGBENGA, OLUFEMI]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[7:7 into parts: [Basic Networking Fibre Optics]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[7:3 into parts: [ORUKOTAN, OLUGBENGA, OLUFEMI]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[7:7 into parts: [Basic Networking Fibre Optics]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 7. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:8. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[8:3 into parts: [DEDEKE, ADESOJI, SEHINDE, A]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[8:7 into parts: [City & Guilds - 85, GCE - 85, ND Bus Adm - 00, HND Bus Adm - 02, Basic Comms Cse A3 - 89, AUC A2 - 93, AUC A1 - 02]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[8:3 into parts: [DEDEKE, ADESOJI, SEHINDE, A]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[8:7 into parts: [City & Guilds - 85, GCE - 85, ND Bus Adm - 00, HND Bus Adm - 02, Basic Comms Cse A3 - 89, AUC A2 - 93, AUC A1 - 02]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 8. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:9. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[9:3 into parts: [AFFIA, JOHN, GEORGE]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[9:7 into parts: [BSc Pub Adm, Radar X1 -97]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[9:3 into parts: [AFFIA, JOHN, GEORGE]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[9:7 into parts: [BSc Pub Adm, Radar X1 -97]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 9. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:10. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[10:3 into parts: [NAFAN, TIMOTHY, AHMADU]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[10:7 into parts: [Basic Radar Cse X2 - 97, AUC Radar Cse X1 - 98, SEL VOR NCAT - 06, OND EE]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[10:3 into parts: [NAFAN, TIMOTHY, AHMADU]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[10:7 into parts: [Basic Radar Cse X2 - 97, AUC Radar Cse X1 - 98, SEL VOR NCAT - 06, OND EE]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 10. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:11. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[11:3 into parts: [IJIOLA, MICHEAL, OLAWALE]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[11:7 into parts: [Dip in Comp Sci, ABC X3 - 00, AUC X2 - 02, EE Radar X1 - 05]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[11:3 into parts: [IJIOLA, MICHEAL, OLAWALE]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[11:7 into parts: [Dip in Comp Sci, ABC X3 - 00, AUC X2 - 02, EE Radar X1 - 05]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 11. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:12. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[12:3 into parts: [KUME, BABALE, NITTE]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[12:7 into parts: [DC 1 RADAR]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[12:3 into parts: [KUME, BABALE, NITTE]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[12:7 into parts: [DC 1 RADAR]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 12. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:13. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[13:3 into parts: [AKANO, OLUKAYODE, BENJAMIN]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[13:7 into parts: [ABC X3 - 93, AUC X2 - 99, AUC X1 - 01, EE LOTRAC - 05, NCE TECH EE]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[13:3 into parts: [AKANO, OLUKAYODE, BENJAMIN]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[13:7 into parts: [ABC X3 - 93, AUC X2 - 99, AUC X1 - 01, EE LOTRAC - 05, NCE TECH EE]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 13. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:14. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[14:3 into parts: [MUSA, DAUDA, AKEEM]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[14:7 into parts: [ABC X3 - 00, EE LOTRAC - 05, ADV EE MAINT CSE X2 -06, CERT DATA COMMS & NETWORKING]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[14:3 into parts: [MUSA, DAUDA, AKEEM]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[14:7 into parts: [ABC X3 - 00, EE LOTRAC - 05, ADV EE MAINT CSE X2 -06, CERT DATA COMMS & NETWORKING]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 14. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:15. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[15:3 into parts: [UMAR, SAGIR]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[15:7 into parts: [ABC X3 - 00, AUC Radar X2 - 02, PABX cse - 04, MATC Cse - 05, EE LOTRAC - 06, Post Adv EE Cse - 09, NABTEB]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[15:3 into parts: [UMAR, SAGIR]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[15:7 into parts: [ABC X3 - 00, AUC Radar X2 - 02, PABX cse - 04, MATC Cse - 05, EE LOTRAC - 06, Post Adv EE Cse - 09, NABTEB]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 15. @class com.pdm.xls.BuildEntitiesFromResult
+[EL Warning]: 2017-05-20 23:17:16.876--UnitOfWork(16555068)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'unit' cannot be null
+Error Code: 1048
+Call: INSERT INTO personnelposting (datetakenonstrength, appointment, personneldata, unit) VALUES (?, ?, ?, ?)
+	bind => [4 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Personnelposting[ personnelpostingid=null ])
+Begin processing row:16. @class com.bc.appbase.xls.RowToArrayProcessor
+@[15:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Split cell @[16:3 into parts: [AWOTUNDE, AKEEM, OWOLABI]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[16:7 into parts: [AUC X1 - 05, VOR Maint (NCAT) Zaria - 06]. @class com.bc.appbase.xls.TextCellSpliter
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'unit' cannot be null
+Split cell @[16:3 into parts: [AWOTUNDE, AKEEM, OWOLABI]. @class com.bc.appbase.xls.TextCellSpliter
+Error Code: 1048
+Split cell @[16:7 into parts: [AUC X1 - 05, VOR Maint (NCAT) Zaria - 06]. @class com.bc.appbase.xls.TextCellSpliter
+Call: INSERT INTO personnelposting (datetakenonstrength, appointment, personneldata, unit) VALUES (?, ?, ?, ?)
+	bind => [4 parameters bound]
+Final processing row: 16. @class com.pdm.xls.BuildEntitiesFromResult
+Query: InsertObjectQuery(com.pdm.pu.entities.Personnelposting[ personnelpostingid=null ])
+[EL Warning]: 2017-05-20 23:17:22.274--UnitOfWork(18570444)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'unit' cannot be null
+Error Code: 1048
+Call: INSERT INTO personnelposting (datetakenonstrength, appointment, personneldata, unit) VALUES (?, ?, ?, ?)
+	bind => [4 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Personnelposting[ personnelpostingid=null ])
+Begin processing row:17. @class com.bc.appbase.xls.RowToArrayProcessor
+@[16:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Split cell @[17:3 into parts: [AROHUNMOLASE, WILLIAMS, IBUKUN]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[17:7 into parts: [ABC X3 - 99, EE LOTRAC - 05, AUC X2, AUC X1 - 07]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[17:3 into parts: [AROHUNMOLASE, WILLIAMS, IBUKUN]. @class com.bc.appbase.xls.TextCellSpliter
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'unit' cannot be null
+Split cell @[17:7 into parts: [ABC X3 - 99, EE LOTRAC - 05, AUC X2, AUC X1 - 07]. @class com.bc.appbase.xls.TextCellSpliter
+Error Code: 1048
+Final processing row: 17. @class com.pdm.xls.BuildEntitiesFromResult
+Call: INSERT INTO personnelposting (datetakenonstrength, appointment, personneldata, unit) VALUES (?, ?, ?, ?)
+	bind => [4 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Personnelposting[ personnelpostingid=null ])
+[EL Warning]: 2017-05-20 23:17:22.683--UnitOfWork(21158636)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'unit' cannot be null
+Error Code: 1048
+Call: INSERT INTO personnelposting (datetakenonstrength, appointment, personneldata, unit) VALUES (?, ?, ?, ?)
+	bind => [4 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Personnelposting[ personnelpostingid=null ])
+Begin processing row:18. @class com.bc.appbase.xls.RowToArrayProcessor
+@[17:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Split cell @[18:3 into parts: [INUWA, IBRAHIM, .]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[18:7 into parts: [ABC X3 - 03, EE LOTRAC X2 - 04, POST ADV EE MAINT X1 - 09]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[18:3 into parts: [INUWA, IBRAHIM, .]. @class com.bc.appbase.xls.TextCellSpliter
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'unit' cannot be null
+Error Code: 1048
+Split cell @[18:7 into parts: [ABC X3 - 03, EE LOTRAC X2 - 04, POST ADV EE MAINT X1 - 09]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 18. @class com.pdm.xls.BuildEntitiesFromResult
+Call: INSERT INTO personnelposting (datetakenonstrength, appointment, personneldata, unit) VALUES (?, ?, ?, ?)
+	bind => [4 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Personnelposting[ personnelpostingid=null ])
+Begin processing row:19. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[19:3 into parts: [AYILOLA, GBENGA, ADENIYI]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[19:7 into parts: [Dip in EE - 07, Dip in Comp Sci - 98, ABC X3 Radar - 01, EE LOTRAC Radar/Navaids - 03, Post Adv EE Maint X1 - 09]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[19:3 into parts: [AYILOLA, GBENGA, ADENIYI]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[19:7 into parts: [Dip in EE - 07, Dip in Comp Sci - 98, ABC X3 Radar - 01, EE LOTRAC Radar/Navaids - 03, Post Adv EE Maint X1 - 09]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 19. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:20. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[20:3 into parts: [OMEJE, STEPHEN, AMECHI, AMECHI]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[20:7 into parts: [ABC X3 - 01, EE LOTRAC - 06, Adv EE Maint X2 - 07, Post Adv EE Maint X1 - 09]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[20:3 into parts: [OMEJE, STEPHEN, AMECHI, AMECHI]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[20:7 into parts: [ABC X3 - 01, EE LOTRAC - 06, Adv EE Maint X2 - 07, Post Adv EE Maint X1 - 09]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 20. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:21. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[21:3 into parts: [NWIGWE, CHIMEZIE, Ihechi]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[21:7 into parts: [EE LOTRAC - 06]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[21:3 into parts: [NWIGWE, CHIMEZIE, Ihechi]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[21:7 into parts: [EE LOTRAC - 06]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 21. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:22. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[22:3 into parts: [ABDULLAHI, MUHAMMED, KABIR]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[22:7 into parts: [ABC X3 - 03, EE LOTRAC - 05, EE MAINT X2 - 07, EE MAINT X1 - 09]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[22:3 into parts: [ABDULLAHI, MUHAMMED, KABIR]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[22:7 into parts: [ABC X3 - 03, EE LOTRAC - 05, EE MAINT X2 - 07, EE MAINT X1 - 09]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 22. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:23. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[23:3 into parts: [OSUAGWU, CHINYERE, ADANE, GLORY]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[23:7 into parts: []. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[23:3 into parts: [OSUAGWU, CHINYERE, ADANE, GLORY]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[23:7 into parts: []. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 23. @class com.pdm.xls.BuildEntitiesFromResult
+[EL Warning]: 2017-05-20 23:20:48.962--UnitOfWork(4880822)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+@[23:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Begin processing row:24. @class com.bc.appbase.xls.RowToArrayProcessor
+Error Code: 1048
+Split cell @[24:3 into parts: [YUSUF, MUHAMMED, NASIR]. @class com.bc.appbase.xls.TextCellSpliter
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+Split cell @[24:7 into parts: [ABC X3 - 01]. @class com.bc.appbase.xls.TextCellSpliter
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Split cell @[24:3 into parts: [YUSUF, MUHAMMED, NASIR]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[24:7 into parts: [ABC X3 - 01]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 24. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:25. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[25:3 into parts: [YUNUSA, ALAHASSAN]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[25:7 into parts: []. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[25:3 into parts: [YUNUSA, ALAHASSAN]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[25:7 into parts: []. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 25. @class com.pdm.xls.BuildEntitiesFromResult
+[EL Warning]: 2017-05-20 23:21:24.986--UnitOfWork(24476776)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Error Code: 1048
+@[25:10] encountered exception: javax.persistence.RollbackException: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'coursetitle' cannot be null
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Error Code: 1048
+Begin processing row:26. @class com.bc.appbase.xls.RowToArrayProcessor
+Call: INSERT INTO course (coursetitle, description, enddate, location, startdate, qualification) VALUES (?, ?, ?, ?, ?, ?)
+Split cell @[26:3 into parts: [OWOMOYELA, THEOPHILUS, ADEKUNLE]. @class com.bc.appbase.xls.TextCellSpliter
+	bind => [6 parameters bound]
+Split cell @[26:7 into parts: [ABC X3 - 01, ND Chem Engr, AUC X2 - 09, Post Adv EE Maint X1 - 11]. @class com.bc.appbase.xls.TextCellSpliter
+Query: InsertObjectQuery(com.pdm.pu.entities.Course[ courseid=null ])
+Split cell @[26:3 into parts: [OWOMOYELA, THEOPHILUS, ADEKUNLE]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[26:7 into parts: [ABC X3 - 01, ND Chem Engr, AUC X2 - 09, Post Adv EE Maint X1 - 11]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 26. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:27. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[27:3 into parts: [ALLI, OLATUNJI, ABAYOMI]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[27:7 into parts: [ABC X3 - 99, EE LOTRAC - 05, AUC X2 AFIT - 11]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[27:3 into parts: [ALLI, OLATUNJI, ABAYOMI]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[27:7 into parts: [ABC X3 - 99, EE LOTRAC - 05, AUC X2 AFIT - 11]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 27. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:28. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[28:3 into parts: [KARIM, JAMIU, AREGBESOLA]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[28:7 into parts: [ABC X3 EE/Radar - 01, MICOM 2E Cse - 03, EE LOTRAC - 06, Basic & Integrated Comms Seminar at DHQ - 10, Post Adv EE Maint Cse X1 - 2011]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[28:3 into parts: [KARIM, JAMIU, AREGBESOLA]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[28:7 into parts: [ABC X3 EE/Radar - 01, MICOM 2E Cse - 03, EE LOTRAC - 06, Basic & Integrated Comms Seminar at DHQ - 10, Post Adv EE Maint Cse X1 - 2011]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 28. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:29. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[29:3 into parts: [CHINDO, JONATHAN, DAVID]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[29:7 into parts: [ABC X3 - 01, EE LOTRAC - 03]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[29:3 into parts: [CHINDO, JONATHAN, DAVID]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[29:7 into parts: [ABC X3 - 01, EE LOTRAC - 03]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 29. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:30. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[30:3 into parts: [OKAFOR, CHIKA, AWKA]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[30:7 into parts: [ABC X3 - 01, EE LOTRAC - 03, HND Bus Adm - 07, LB NDB NCAT - 07]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[30:3 into parts: [OKAFOR, CHIKA, AWKA]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[30:7 into parts: [ABC X3 - 01, EE LOTRAC - 03, HND Bus Adm - 07, LB NDB NCAT - 07]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 30. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:31. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[31:3 into parts: [OKAFOR, LEONARD, I]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[31:7 into parts: [ABC X3 - 01, EE LOTRAC - 05, NITEL Cse - 06]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[31:3 into parts: [OKAFOR, LEONARD, I]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[31:7 into parts: [ABC X3 - 01, EE LOTRAC - 05, NITEL Cse - 06]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 31. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:32. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[32:3 into parts: [SUNDAY, IKHANEDE, AGENE]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[32:7 into parts: [ABC X3 - 02, EE LOTRAC X2 - 04, Post Adv Maint Cse X1 - 09]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[32:3 into parts: [SUNDAY, IKHANEDE, AGENE]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[32:7 into parts: [ABC X3 - 02, EE LOTRAC X2 - 04, Post Adv Maint Cse X1 - 09]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 32. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:33. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[33:3 into parts: [YUSUF, BALA, ALI]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[33:7 into parts: [EE/RADAR X3 - 99, EE LOTRAC - 04, SEL VOR EQPT MAIN CSE - 06]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[33:3 into parts: [YUSUF, BALA, ALI]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[33:7 into parts: [EE/RADAR X3 - 99, EE LOTRAC - 04, SEL VOR EQPT MAIN CSE - 06]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 33. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:34. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[34:3 into parts: [RAJI, TAJUDEEN, MOHAMMED]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[34:7 into parts: [ABC X3 - 01, EE LOTRAC- 03, ICT - 09]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[34:3 into parts: [RAJI, TAJUDEEN, MOHAMMED]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[34:7 into parts: [ABC X3 - 01, EE LOTRAC- 03, ICT - 09]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 34. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:35. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[35:3 into parts: [ANI, VINCENT, IKENNA]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[35:7 into parts: [ABC X3 - 01, EE LOTRAC - 05, Adv EE Maint Cse X2 - 09]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[35:3 into parts: [ANI, VINCENT, IKENNA]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[35:7 into parts: [ABC X3 - 01, EE LOTRAC - 05, Adv EE Maint Cse X2 - 09]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 35. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:36. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[36:3 into parts: [AMADU, IBRAHIM, GHETTO]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[36:7 into parts: [ABC X3 RADAR, EE LOTRAC - 03, OND Bus Adm]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[36:3 into parts: [AMADU, IBRAHIM, GHETTO]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[36:7 into parts: [ABC X3 RADAR, EE LOTRAC - 03, OND Bus Adm]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 36. @class com.pdm.xls.BuildEntitiesFromResult
+Begin processing row:37. @class com.bc.appbase.xls.RowToArrayProcessor
+Split cell @[37:3 into parts: [DAUDA, AARON, IMPALURE]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[37:7 into parts: [EE/RADAR CSE - 02, EE LOTRAC - 06, Adv EE Maint Cse X2 - 11]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[37:3 into parts: [DAUDA, AARON, IMPALURE]. @class com.bc.appbase.xls.TextCellSpliter
+Split cell @[37:7 into parts: [EE/RADAR CSE - 02, EE LOTRAC - 06, Adv EE Maint Cse X2 - 11]. @class com.bc.appbase.xls.TextCellSpliter
+Final processing row: 37. @class com.pdm.xls.BuildEntitiesFromResult
+BUILD STOPPED (total time: 10 minutes 38 seconds)
+
